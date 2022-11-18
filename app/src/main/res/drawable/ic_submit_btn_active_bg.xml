@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+        <shape android:shape="rectangle">
+            <gradient android:endColor="@color/colorAccent" android:startColor="@color/colorAccent" android:type="linear" />
+            <stroke android:width="1dp" android:color="@color/btn_colorAccent" />
+            <!--corners allow us to make the rounded corners button-->
+            <corners android:radius="@dimen/margin_top_8" />
+        </shape>
+    </item>
+</selector>
+
+
+    <!--<?xml version="1.0" encoding="utf-8"?>
+    <shape xmlns:android="http://schemas.android.com/apk/res/android"
+        android:shape="rectangle">
+
+        <corners android:radius="@dimen/margin_top_8" />
+
+        <gradient
+            android:endColor="@color/soft_blue"
+            android:startColor="@color/colorAccent"
+            android:type="linear" />
+
+        <stroke
+            android:width="1dp"
+            android:color="@color/dark_sky_blue" />
+
+    </shape>-->

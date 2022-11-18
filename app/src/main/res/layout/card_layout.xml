@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    tools:context=".CardDashboard">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white">
+
+            <RelativeLayout
+                android:id="@+id/rel_activate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="visible">
+
+                <LinearLayout
+                    android:id="@+id/dashboard_ll_top"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+
+                    android:layout_marginStart="@dimen/margin_top_15"
+                    android:layout_marginTop="@dimen/margin_top_25"
+                    android:layout_marginEnd="@dimen/margin_top_15"
+                    android:orientation="vertical"
+                    android:visibility="gone"
+                    app:layout_collapseMode="pin">
+
+                   <!-- <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.15"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_dashboard_home" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="0.70"
+                            android:orientation="vertical">
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/txt_merchant_name"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="center"
+                                android:layout_marginStart="@dimen/margin_top_8"
+                                android:layout_marginEnd="0dp"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:gravity="center|start"
+                                android:maxHeight="60dp"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text=""
+                                android:textColor="@color/white"
+                                android:textSize="@dimen/normal_text"
+                                android:textStyle="normal" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/bank_name_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginStart="@dimen/margin_top_15"
+                                android:layout_marginEnd="0dp"
+                                android:fontFamily="@font/quicksand_regular"
+                                android:gravity="start"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text=""
+                                android:textColor="@color/cool_grey"
+                                android:textSize="@dimen/mini_text"
+                                android:textStyle="normal"
+                                android:visibility="visible" />
+
+                            <androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/bank_accountNumber_tv"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_gravity="start"
+                                android:layout_marginStart="@dimen/margin_top_15"
+                                android:layout_marginEnd="0dp"
+                                android:fontFamily="@font/quicksand_regular"
+                                android:gravity="start"
+                                android:maxLines="1"
+                                android:singleLine="true"
+                                android:text=""
+                                android:textColor="@color/cool_grey"
+                                android:textSize="@dimen/mini_text"
+                                android:textStyle="normal"
+                                android:visibility="visible" />
+                        </LinearLayout>
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/notification_iv"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_weight="0.15"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerInside"
+                            android:src="@drawable/ic_bell" />
+
+                    </LinearLayout>-->
+
+                </LinearLayout>
+
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:id="@+id/main_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+
+                    android:layout_below="@+id/dashboard_ll_top">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:id="@+id/appBar"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@android:color/white"
+                        android:fitsSystemWindows="true"
+                        android:orientation="vertical">
+
+                        <com.google.android.material.appbar.CollapsingToolbarLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fitsSystemWindows="true"
+                            app:layout_scrollFlags="scroll|snap|exitUntilCollapsed">
+
+                            <RelativeLayout
+                                android:id="@+id/ll_card_layout"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/dashboard_ll_top"
+                                android:layout_marginTop="@dimen/margin_top_12"
+                                android:layout_marginBottom="@dimen/margin_top_30"
+                                android:background="@color/white"
+                                android:visibility="visible"
+                                app:layout_collapseMode="parallax">
+
+                                <FrameLayout
+                                    android:id="@+id/fm_card"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerHorizontal="true">
+
+                                    <FrameLayout
+                                        android:id="@+id/credit_card_back"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <include
+                                            android:id="@+id/layout_card_back"
+                                            layout="@layout/card_back" />
+
+
+                                    </FrameLayout>
+
+                                    <FrameLayout
+                                        android:id="@+id/credit_card_front"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content">
+
+                                        <include
+                                            android:id="@+id/layout_card_front"
+                                            layout="@layout/card_front" />
+
+                                    </FrameLayout>
+                                </FrameLayout>
+
+                                <LinearLayout
+                                    android:id="@+id/ll_actions"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_alignParentEnd="true"
+                                    android:layout_centerVertical="true"
+                                    android:layout_toEndOf="@+id/fm_card"
+                                    android:gravity="center"
+                                    android:orientation="vertical"
+                                    android:visibility="visible"
+                                    android:weightSum="5">
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/copy_card_iv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/margin_top_5"
+                                        android:layout_weight="1"
+                                        android:visibility="gone"
+                                        app:srcCompat="@drawable/ic_copy_card_number" />
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/reset_pin_iv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/margin_top_5"
+                                        android:layout_weight="1"
+                                        app:srcCompat="@drawable/ic_reset_card_pin" />
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/card_block_iv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/margin_top_5"
+                                        android:layout_weight="1"
+                                        app:srcCompat="@drawable/ic_card_unblocked" />
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/add_money_tv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/margin_top_5"
+                                        android:layout_weight="1"
+                                        android:visibility="gone"
+                                        app:srcCompat="@drawable/ic_card_add_money" />
+
+                                    <androidx.appcompat.widget.AppCompatImageView
+                                        android:id="@+id/card_controls_iv"
+                                        android:layout_width="wrap_content"
+                                        android:layout_height="wrap_content"
+                                        android:layout_margin="@dimen/margin_top_5"
+                                        android:layout_weight="1"
+                                        android:visibility="visible"
+                                        app:srcCompat="@drawable/ic_manage_card_controls" />
+
+                                </LinearLayout>
+
+                                <View
+                                    android:id="@+id/view"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="@dimen/margin_top_8"
+                                    android:layout_below="@+id/ll_actions"
+                                    android:layout_marginTop="@dimen/dimen_16"
+                                    android:background="@color/bg_bill_paymnt_bg"
+                                    android:visibility="gone" />
+                            </RelativeLayout>
+
+                        </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/view"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+
+                    </RelativeLayout>
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+            </RelativeLayout>
+
+            <ProgressBar
+                android:id="@+id/progressDialog"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center"
+                android:indeterminateDrawable="@drawable/custom_progress_bar"
+                android:indeterminate="true"
+                android:visibility="gone" />
+        </RelativeLayout>
+
+</RelativeLayout>

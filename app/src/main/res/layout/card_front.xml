@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="corporateDashboard"
+            type="com.nexxo.nsdlsdk.model.CorporateCardInfo" />
+
+    </data>
+
+    <FrameLayout
+        android:id="@+id/card_front_image"
+        android:layout_width="220dp"
+        android:layout_height="330dp"
+        android:layout_gravity="center"
+        android:background="@drawable/front_card">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="@dimen/margin_top_12">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_card_first_name"
+                style="@style/MyLargeTextViewTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="265dp"
+                android:paddingEnd="@dimen/margin2"
+                android:text="FirstNAme"
+                android:textAllCaps="true"
+                android:textColor="#d0d0d0"
+                android:textSize="@dimen/micro_text_tab" />
+
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_card_last_name"
+                style="@style/lastTextViewTheme"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_card_first_name"
+                android:text="Last Name"
+                android:textAllCaps="true"
+                android:textColor="#d0d0d0"
+                android:textSize="10sp" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_avaialable"
+                style="@style/MySmallTextViewTheme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_card_last_name"
+                android:layout_marginTop="@dimen/margin_top_12"
+                android:gravity="start"
+                android:text="@string/available_balance"
+                android:textColor="@color/transparent"
+                android:visibility="gone"
+                android:textSize="@dimen/micro_text" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_avaialable_amount"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_avaialable"
+                android:paddingStart="@dimen/margin_top_3"
+                android:fontFamily="@font/quicksand_semibold"
+                android:gravity="start"
+                android:text=""
+                android:visibility="gone"
+                android:textColor="@color/white"
+                android:textSize="@dimen/large_text"
+                android:textStyle="normal" />
+
+            <LinearLayout
+                android:id="@+id/activate_lyt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/tv_avaialable_amount"
+                android:layout_marginTop="@dimen/margin_top_20"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/activate_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:background="@drawable/rounded_activate_bg"
+                    android:fontFamily="@font/quicksand_semibold"
+                    android:padding="@dimen/margin_top_8"
+                    android:text="Activate Card"
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_10" />
+
+            </LinearLayout>
+        </RelativeLayout>
+
+    </FrameLayout>
+</layout>

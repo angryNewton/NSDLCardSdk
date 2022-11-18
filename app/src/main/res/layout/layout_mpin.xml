@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/top_lay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="20dp"
+        android:padding="@dimen/margin_top_5">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:fontFamily="@font/quicksand_bold"
+            android:gravity="center"
+            android:text="Mpin"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/text_size_16" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/cross_iv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="@dimen/margin_top_10"
+            android:padding="@dimen/margin_top_8"
+            app:srcCompat="@drawable/ic_black_cross" />
+    </RelativeLayout>
+
+    <com.nexxo.nsdlsdk.utility.PinView
+        android:id="@+id/mpin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/top_lay"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="start"
+        android:layout_marginTop="@dimen/margin_top_25"
+        android:layout_marginBottom="@dimen/margin_top_5"
+        android:background="@android:color/transparent"
+        android:focusableInTouchMode="true"
+        android:fontFamily="@font/quicksand_medium"
+        android:gravity="center"
+        android:inputType="number"
+        android:itemBackground="@color/white"
+        android:maxLines="1"
+        android:singleLine="true"
+        android:textColor="@color/black"
+        android:textSize="@dimen/text_size_18"
+        android:visibility="visible"
+        app:itemCount="6"
+        app:itemHeight="45dp"
+        app:itemRadius="@dimen/margin_top_5"
+        app:itemSpacing="@dimen/margin_top_15"
+        app:itemWidth="45dp"
+        app:lineColor="@color/colorPrimary"
+        app:lineWidth="1dp"
+        app:viewType="rectangle" />
+
+    <Button
+        android:id="@+id/confirm_mpin"
+        android:layout_width="210dp"
+        android:layout_below="@+id/mpin"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/confirm_button_states_bg"
+        android:fontFamily="@font/quicksand_semibold"
+        android:textColor="@color/white"
+        android:layout_marginBottom="30dp"
+        android:text="Confirm" />
+
+</RelativeLayout>

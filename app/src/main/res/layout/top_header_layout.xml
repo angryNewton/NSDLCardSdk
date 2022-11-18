@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardview_top_header"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center|top"
+    app:cardElevation="@dimen/margin0">
+    <!--app:cardUseCompatPadding="true"-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="@drawable/bg_linear_gradient"
+        android:baselineAligned="false"
+        android:gravity="center"
+        android:minHeight="60dp"
+        android:orientation="horizontal"
+        android:padding="@dimen/margin1">
+
+        <LinearLayout
+            android:id="@+id/ll_back_arrow"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.10"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_ic_back_arrow"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                app:srcCompat="@drawable/ic_back" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center|start"
+            android:layout_marginStart="@dimen/margin_top_5"
+            android:layout_weight="0.82"
+            android:gravity="center|start">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_HeaderText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|start"
+                android:fontFamily="@font/quicksand_semibold"
+                android:gravity="center|start"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="@dimen/text_size_16" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="0.08"
+            android:gravity="center">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/img_edit_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:gravity="center"
+                android:scaleType="centerInside"
+                android:visibility="gone"
+                app:srcCompat="@drawable/img_disable_edit_details" />
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

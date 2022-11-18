@@ -1,0 +1,379 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="corporateDashboard"
+            type="com.nexxo.nsdlsdk.model.CorporateCardInfo" />
+
+    </data>
+
+    <FrameLayout
+        android:layout_width="220dp"
+        android:layout_height="330dp"
+        android:layout_gravity="center"
+        android:background="@drawable/card_back">
+
+        <LinearLayout
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="50dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/ll_1_4_digit"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginTop="@dimen/margin_top_6"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal"
+                android:paddingStart="12dp"
+                android:paddingTop="4dp"
+                android:rotationY="20"
+                android:weightSum="100">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_first_1_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_second_1_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_third_1_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_fourth_1_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_2_digit_number"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_1_4_digit"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal"
+                android:rotationY="20"
+                android:layout_marginTop="-3dp"
+                android:paddingStart="@dimen/margin_top_12"
+                android:weightSum="100">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_first_2_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_second_2_name"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_third_2_name"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_forth_2_name"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_3_digit_number"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_2_digit_number"
+                android:layout_gravity="right"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal"
+                android:layout_marginTop="-8dp"
+                android:paddingStart="12dp"
+                android:rotationY="20"
+                android:weightSum="100">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_first_3_name"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_second_3_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_third_3_name"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_fourth_3_name"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_4_digit_number"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_2_digit_number"
+                android:layout_gravity="center_vertical|right"
+                android:layout_marginRight="5dp"
+                android:layout_marginBottom="4dp"
+                android:orientation="horizontal"
+                android:paddingStart="12dp"
+                android:rotationY="20"
+                android:weightSum="100">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_first_4_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_second_4_name"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_third_4_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_card_fourth_4_name"
+                    android:layout_width="0dp"
+                    android:layout_height="25dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="10dp"
+                    android:layout_weight="25"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_exp_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ll_4_digit_number"
+                android:orientation="horizontal"
+                android:layout_gravity="right"
+                android:layout_marginEnd="10dp"
+                android:layout_marginTop="-15dp">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_Expiry"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="EXP DATE"
+                    android:gravity="center"
+                    android:textColor="#f9d937"
+                    android:textSize="10sp" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_Expiry_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="right"
+                    android:text="XX/XX"
+                    android:textColor="@color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/ll_security_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginTop="5dp"
+                android:layout_below="@+id/ll_4_digit_number"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_security"
+                    android:layout_width="@dimen/margin0"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="70"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:text="SECURITY CODE"
+                    android:textColor="#f9d937"
+                    android:gravity="center"
+                    android:textSize="10sp" />
+
+          <!--      <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="30"
+                    android:gravity="right"
+                    android:orientation="vertical">-->
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_security_date"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginStart="5dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:fontFamily="@font/quicksand_medium"
+                    android:gravity="center"
+                    android:text="***"
+                    android:textColor="@color/white"
+                    android:textSize="13sp" />
+
+
+
+
+             <!--   </LinearLayout>-->
+
+
+            </LinearLayout>
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/sc_show_number"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="130dp"
+                android:layout_gravity="right"
+                android:layout_height="wrap_content"
+                android:checked="false"
+                app:trackTint="@color/white" />
+        </LinearLayout>
+
+
+    </FrameLayout>
+</layout>

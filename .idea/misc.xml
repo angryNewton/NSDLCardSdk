@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable-v24/bottom_sheet_transparent_bg.xml" value="0.132" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable-v24/progress_seekbar.xml" value="0.132" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable-v24/rounded_card_dialog.xml" value="0.132" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable-v24/seek_bar_background.xml" value="0.132" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable-v24/seek_bar_progress_fill_yeallow.xml" value="0.132" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable-v24/seekbar_drawable.xml" value="0.132" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable-v24/seekbar_thumb.xml" value="0.132" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/confirm_button_states_bg.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/custom_progress_bar.xml" value="0.145" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/dialog_bg.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/enable_limit_drawable.xml" value="0.1" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_back.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_black_cross.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_blue_cross.xml" value="0.132" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_card_add_money.xml" value="0.145" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_card_back_cover.xml" value="0.145" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_card_generate_otp_bg.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_card_unblocked.xml" value="0.145" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_congrats_pin.xml" value="0.132" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_copy_card_number.xml" value="0.145" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_corporate_card_checked_box.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_dialogue_check.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_green_tik.xml" value="0.132" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_manage_card_controls.xml" value="0.145" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_reset_card_pin.xml" value="0.145" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_submit_btn_active_bg.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_submit_btn_inactive_bg.xml" value="0.1" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_unblock_card.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/ic_unchecked_box.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/rounded_activate_bg.xml" value="0.145" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/rounded_blue_filled_btn_bg.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/rounded_grey_filled_btn_bg.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/submit_btn_states_bg.xml" value="0.127" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/drawable/switch_stype.xml" value="0.1145" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/activity_card_limit.xml" value="0.16666666666666666" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/activity_corporate_card_generate_otp.xml" value="0.2047244094488189" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/activity_dashboard_card.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/activity_generate_otp.xml" value="0.1" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/activity_main.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/bg_linear_gradient.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/card_back.xml" value="0.16666666666666666" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/card_block_items.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/card_bottom_sheet_block_card.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/card_front.xml" value="0.22" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/card_layout.xml" value="0.14666666666666667" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/card_limit.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/card_limit_items.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/corporate_card_back.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/corporate_card_bottom_sheet_block_card.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/corporate_card_front.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/corporate_card_unblock_card.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/cross_button_finish_dialogue.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/dialogue_pin_card_success.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/ic_consumer_copy_card_numer.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/ic_reset_card_pin.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/layout_mpin.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/one_button_finsh_dialog.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/success_dialog.xml" value="0.16770833333333332" />
+        <entry key="..\:/Nexxo/India/NSDL-SDK/app/src/main/res/layout/top_header_layout.xml" value="0.16770833333333332" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

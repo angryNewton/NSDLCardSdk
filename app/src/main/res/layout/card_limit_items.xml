@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/rl_card_main"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="@dimen/margin_top_15"
+    android:layout_marginEnd="@dimen/margin_top_15"
+    android:layout_marginBottom="@dimen/margin_top_5"
+    android:background="@android:color/transparent">
+
+    <!--<androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="@dimen/margin_top_5"
+        app:cardElevation="@dimen/margin_top_6">-->
+
+    <LinearLayout
+        android:id="@+id/cv_limit_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="@dimen/margin_top_5"
+            android:weightSum="100">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/tv_title_new"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical"
+                android:layout_weight="80"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="Atm Withdrawal"
+                android:textColor="@color/black"
+                android:textSize="@dimen/text_size_14"
+                android:visibility="visible" />
+
+            <androidx.appcompat.widget.SwitchCompat
+                android:id="@+id/switch_chang"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="end"
+                android:layout_weight="20"
+                app:switchMinWidth="60dp"
+                app:thumbTint="@color/switch_thumb_selector"
+                app:trackTint="@color/switch_track_selector">
+
+            </androidx.appcompat.widget.SwitchCompat>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/ice_blue_dark" />
+
+        <LinearLayout
+            android:id="@+id/lv_limitseekbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/bg_kyb_kyc_document_list_item"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:visibility="visible">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin2"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="@dimen/margin_top_5"
+                android:weightSum="100">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_per_limit_name"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:fontFamily="@font/quicksand_regular"
+                    android:text="Set Per Transaction limit"
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_14"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_amount"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:layout_marginEnd="@dimen/margin_top_2"
+                    android:layout_weight="50"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="end"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_18"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <androidx.appcompat.widget.AppCompatSeekBar
+                android:id="@+id/limit_seekbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_top_2"
+                android:layout_marginEnd="@dimen/margin_top_2"
+                android:maxHeight="10dp"
+                android:paddingTop="@dimen/margin_top_12"
+                android:progress="0"
+                android:progressDrawable="@drawable/progress_seekbar"
+                android:thumb="@drawable/seekbar_thumb"
+                android:thumbOffset="0dp"
+                android:thumbTint="@color/white" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginStart="@dimen/margin_top_2"
+                android:layout_marginEnd="@dimen/margin_top_2"
+                android:layout_marginBottom="@dimen/margin_top_10"
+                android:weightSum="100">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_min_limit_Set"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:fontFamily="@font/quicksand_regular"
+                    android:gravity="start"
+                    android:text="(Min) Rs 0 "
+                    android:textColor="@color/bluey_grey_two"
+                    android:textSize="@dimen/text_size_14"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_max_limit_set"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="50"
+                    android:fontFamily="@font/quicksand_regular"
+                    android:gravity="end"
+                    android:text="(Max) Rs 0 "
+                    android:textColor="@color/bluey_grey_two"
+                    android:textSize="@dimen/text_size_14"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_top_2"
+            android:layout_marginTop="@dimen/margin_top_5"
+            android:layout_marginEnd="@dimen/margin_top_2"
+            android:orientation="horizontal"
+            android:weightSum="100">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_top_2"
+                android:layout_marginEnd="@dimen/margin_top_2"
+                android:layout_weight="50"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/quicksand_regular"
+                    android:gravity="start"
+                    android:text="Current limit"
+                    android:textColor="@color/bluey_grey_two"
+                    android:textSize="@dimen/text_size_14"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_current_limit_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/margin_top_5"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="start"
+                    android:text=""
+                    android:textColor="@color/colorPrimary"
+                    android:textSize="@dimen/text_size_18"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_top_2"
+                android:layout_marginEnd="@dimen/margin_top_2"
+                android:layout_weight="50"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:fontFamily="@font/quicksand_regular"
+                    android:gravity="end"
+                    android:text="Max limit"
+                    android:textColor="@color/bluey_grey_two"
+                    android:visibility="visible" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/tv_current_max_limit_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginTop="@dimen/margin_top_5"
+                    android:fontFamily="@font/quicksand_bold"
+                    android:gravity="end"
+                    android:text=""
+                    android:textColor="@color/black"
+                    android:textSize="@dimen/text_size_18"
+                    android:visibility="visible" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!--</androidx.cardview.widget.CardView>-->
+</RelativeLayout>

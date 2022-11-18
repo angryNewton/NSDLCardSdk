@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <LinearLayout
+            android:id="@+id/main_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <include
+                android:id="@+id/toolbar"
+                layout="@layout/top_header_layout" />
+
+            <ScrollView
+                android:id="@+id/sv_main"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:id="@+id/lv_parent"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:id="@+id/lv_generateotp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="@dimen/dimen_12"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:id="@+id/iv_logo"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/margin_top_12"
+                            android:layout_marginTop="@dimen/margin_top_40"
+                            android:layout_marginEnd="@dimen/margin_top_12"
+                            android:src="@drawable/ic_card_generate_otp_bg" />
+
+                        <androidx.appcompat.widget.AppCompatTextView
+                            android:id="@+id/tv_generate_text"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/margin_top_30"
+                            android:ellipsize="marquee"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:gravity="center"
+                            android:text="@string/txt_coroprate_generate_6_digit_code"
+                            android:textColor="@color/txt_bill_items"
+                            android:textSize="@dimen/text_size_15" />
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_generate_otp"
+                            android:layout_width="250dp"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="@dimen/margin_top_40"
+                            android:background="@drawable/confirm_button_states_bg"
+                            android:elevation="@dimen/margin_top_5"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:padding="@dimen/margin_top_10"
+                            android:text="@string/txt_coroprate_generate_otp"
+                            android:textAllCaps="true"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_text"
+
+                            />
+
+                        <com.nexxo.nsdlsdk.utility.PinView
+                            android:id="@+id/pinview1"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="start"
+                            android:layout_marginTop="@dimen/margin_top_5"
+                            android:layout_marginBottom="@dimen/margin_top_5"
+                            android:background="@android:color/transparent"
+                            android:focusableInTouchMode="true"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:gravity="start"
+                            android:inputType="numberPassword"
+                            android:maxLines="1"
+                            android:padding="@dimen/margin_top_10"
+                            android:singleLine="true"
+                            android:textColor="@color/black"
+                            android:textSize="@dimen/large_text"
+                            android:visibility="gone"
+                            app:itemCount="6"
+                            app:itemSpacing="@dimen/margin_top_6"
+                            app:itemWidth="55dp"
+                            app:lineColor="@color/cool_grey"
+                            app:viewType="line" />
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:id="@+id/lv_generatepin"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="@dimen/margin_top_15"
+                                android:layout_marginTop="@dimen/margin_top_15"
+                                android:layout_marginEnd="@dimen/margin_top_15"
+                                android:layout_marginBottom="@dimen/margin_top_15"
+                                android:orientation="vertical">
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:fontFamily="@font/quicksand_semibold"
+                                    android:gravity="start"
+                                    android:visibility="gone"
+                                    android:padding="@dimen/margin3"
+                                    android:text="@string/txt_otp_sent_msg"
+                                    android:textColor="@color/txt_bill_items"
+                                    android:textSize="14sp" />
+
+
+                                <com.nexxo.nsdlsdk.utility.PinView
+                                    android:id="@+id/pinview_otp"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="@dimen/margin_top_15"
+                                    android:layout_marginBottom="@dimen/margin_top_5"
+                                    android:background="@android:color/transparent"
+                                    android:focusableInTouchMode="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:gravity="center"
+                                    android:inputType="number"
+                                    android:itemBackground="@color/white"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_18"
+                                    android:visibility="gone"
+                                    app:itemCount="6"
+                                    app:itemHeight="45dp"
+                                    app:itemRadius="@dimen/margin_top_5"
+                                    app:itemSpacing="@dimen/margin_top_15"
+                                    app:itemWidth="35dp"
+                                    app:lineColor="@color/colorPrimary"
+                                    app:lineWidth="1dp"
+                                    app:viewType="rectangle" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/timer_tv"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_margin="@dimen/margin_top_5"
+                                    android:fontFamily="@font/quicksand_regular"
+                                    android:gravity="center"
+                                    android:padding="@dimen/margin_top_5"
+                                    android:text=""
+                                    android:textColor="@color/txt_bill_items"
+                                    android:textSize="@dimen/mini_text" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/btn_resendotp1"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="end"
+                                    android:layout_marginTop="@dimen/margin_top_8"
+                                    android:layout_marginEnd="@dimen/margin_top_15"
+                                    android:fontFamily="@font/quicksand_regular"
+                                    android:gravity="center"
+                                    android:padding="@dimen/margin_top_5"
+                                    android:text=""
+                                    android:textColor="@color/txt_bill_items"
+                                    android:textSize="@dimen/mini_text" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="center"
+                                    android:layout_marginTop="@dimen/margin_top_30"
+                                    android:ellipsize="marquee"
+                                    android:fontFamily="@font/quicksand_regular"
+                                    android:gravity="center|start"
+                                    android:text="@string/txt_coroprate_set_your_pin"
+                                    android:textColor="@color/bluey_grey_two"
+                                    android:textSize="@dimen/text_size_14"
+                                    android:visibility="visible" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tv_set_pin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/margin_top_20"
+                                    android:fontFamily="@font/quicksand_semibold"
+                                    android:text="@string/set_pin"
+                                    android:textColor="@color/txt_bill_items"
+                                    android:textSize="@dimen/text_size_15" />
+
+                                <com.nexxo.nsdlsdk.utility.PinView
+                                    android:id="@+id/pin_set"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="@dimen/margin_top_15"
+                                    android:layout_marginBottom="@dimen/margin_top_5"
+                                    android:background="@android:color/transparent"
+                                    android:focusableInTouchMode="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:gravity="center"
+                                    android:inputType="numberPassword"
+                                    android:itemBackground="@color/white"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_18"
+                                    android:visibility="visible"
+                                    app:itemCount="4"
+                                    app:itemHeight="45dp"
+                                    app:itemRadius="@dimen/margin_top_5"
+                                    app:itemSpacing="@dimen/margin_top_15"
+                                    app:itemWidth="45dp"
+                                    app:lineColor="@color/colorPrimary"
+                                    app:lineWidth="1dp"
+                                    app:viewType="rectangle" />
+
+                                <androidx.appcompat.widget.AppCompatTextView
+                                    android:id="@+id/tv_confirm_pin"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_marginTop="@dimen/margin_top_20"
+                                    android:fontFamily="@font/quicksand_semibold"
+                                    android:text="@string/confirm_pin"
+                                    android:textColor="@color/txt_bill_items"
+                                    android:textSize="@dimen/text_size_15" />
+
+                                <com.nexxo.nsdlsdk.utility.PinView
+                                    android:id="@+id/pin_confirm_set"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_gravity="start"
+                                    android:layout_marginTop="@dimen/margin_top_15"
+                                    android:layout_marginBottom="@dimen/margin_top_5"
+                                    android:background="@android:color/transparent"
+                                    android:focusableInTouchMode="true"
+                                    android:fontFamily="@font/quicksand_medium"
+                                    android:gravity="center"
+                                    android:inputType="number"
+                                    android:itemBackground="@color/white"
+                                    android:maxLines="1"
+                                    android:singleLine="true"
+                                    android:textColor="@color/black"
+                                    android:textSize="@dimen/text_size_18"
+                                    android:visibility="visible"
+                                    app:itemCount="4"
+                                    app:itemHeight="45dp"
+                                    app:itemRadius="@dimen/margin_top_5"
+                                    app:itemSpacing="@dimen/margin_top_15"
+                                    app:itemWidth="45dp"
+                                    app:lineColor="@color/colorPrimary"
+                                    app:lineWidth="1dp"
+                                    app:viewType="rectangle" />
+
+
+                            </LinearLayout>
+
+                            <!--<androidx.appcompat.widget.AppCompatTextView
+                                android:id="@+id/tv_otp"
+                                style="@style/MyMediumTextViewTheme"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="@dimen/margin_top_20"
+                                android:text="OTP"
+                                android:textColor="@color/colorAccent"
+                                android:textSize="16sp" />-->
+
+                            <!--<com.indipaisa.business.utils.PinView
+                                android:id="@+id/pinview_otp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_below="@+id/tv_otp"
+                                android:layout_gravity="start"
+                                android:layout_marginBottom="@dimen/margin_top_5"
+                                android:background="@android:color/transparent"
+                                android:focusableInTouchMode="true"
+                                android:fontFamily="@font/quicksand_medium"
+                                android:gravity="start"
+                                android:inputType="number"
+                                android:maxLines="1"
+                                android:padding="@dimen/margin_top_10"
+                                android:singleLine="true"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/large_text"
+                                app:itemCount="6"
+                                app:itemSpacing="@dimen/margin_top_6"
+                                app:itemWidth="55dp"
+                                app:lineColor="@color/cool_grey"
+                                app:viewType="line" />-->
+
+                        </RelativeLayout>
+
+                        <androidx.appcompat.widget.AppCompatButton
+                            android:id="@+id/btn_activate"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginStart="@dimen/margin_top_15"
+                            android:layout_marginTop="@dimen/margin_top_30"
+                            android:layout_marginEnd="@dimen/margin_top_15"
+                            android:layout_marginBottom="@dimen/margin_top_30"
+                            android:background="@drawable/submit_btn_states_bg"
+                            android:elevation="@dimen/margin_top_5"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:padding="@dimen/margin_top_10"
+                            android:text="Confirm"
+                            android:textAllCaps="false"
+                            android:textColor="@color/white"
+                            android:textSize="@dimen/normal_text" />
+                    </LinearLayout>
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressDialog"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:indeterminateDrawable="@drawable/custom_progress_bar"
+            android:indeterminate="true"
+            android:visibility="gone" />
+    </RelativeLayout>
+
+</layout>

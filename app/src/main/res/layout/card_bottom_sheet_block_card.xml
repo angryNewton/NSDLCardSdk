@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <LinearLayout
+        android:id="@+id/bottom_sheet"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/parent_scrollview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/margin_top_10"
+                android:orientation="vertical">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:padding="@dimen/margin_top_5">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_gravity="center"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:gravity="center"
+                        android:text="@string/txt_lock_unlock"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/cross_iv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginEnd="@dimen/margin_top_10"
+                        android:padding="@dimen/margin_top_8"
+                        app:srcCompat="@drawable/ic_black_cross" />
+                </RelativeLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginTop="@dimen/margin_top_5"
+                    android:background="@color/bluey_grey" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="@dimen/margin_top_5">
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start|center"
+                        android:layout_marginTop="@dimen/margin_top_10"
+                        android:fontFamily="@font/quicksand_semibold"
+                        android:gravity="center"
+                        android:text="@string/txt_are_you_sure"
+                        android:textColor="@color/txt_bill_items"
+                        android:textSize="@dimen/text_size_18" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center|start"
+                        android:fontFamily="@font/quicksand_semibold"
+                        android:gravity="center"
+                        android:text="@string/txt_you_want_to_lock"
+                        android:textColor="@color/txt_bill_items"
+                        android:textSize="@dimen/text_size_18" />
+
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/rV_SelectingCard"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_top_10"
+                        android:background="@android:color/transparent"
+                        android:orientation="vertical"
+                        android:visibility="visible"
+                        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+                        tools:listitem="@layout/card_block_list_items" />
+
+                    <androidx.appcompat.widget.AppCompatEditText
+                        android:id="@+id/et_reason"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="@dimen/margin_top_12"
+                        android:layout_marginEnd="@dimen/margin0"
+                        android:hint="Reason"
+                        android:paddingStart="@dimen/margin_top_6"
+                        android:text=""
+                        android:textColor="@color/black"
+                        android:textColorHint="@color/grey"
+                        android:visibility="gone" />
+
+                    <androidx.appcompat.widget.AppCompatTextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="start"
+                        android:layout_marginTop="@dimen/margin_top_5"
+                        android:fontFamily="@font/quicksand_semibold"
+                        android:gravity="start"
+                        android:lineSpacingExtra="8sp"
+                        android:padding="@dimen/margin_top_5"
+                        android:text="@string/txt_temporary_action"
+                        android:textColor="@color/cool_grey"
+                        android:textSize="@dimen/text_size_14" />
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|end"
+                    android:layout_marginTop="@dimen/margin_top_20"
+                    android:elevation="@dimen/margin_top_5"
+                    android:gravity="start"
+                    android:orientation="horizontal"
+                    android:weightSum="100">
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/cancel_btn"
+                        style="@style/Widget.AppCompat.Light.ActionButton"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="start"
+                        android:layout_marginEnd="@dimen/margin_top_10"
+                        android:layout_weight="50"
+                        android:fontFamily="@font/quicksand_semibold"
+                        android:gravity="center"
+                        android:lineSpacingExtra="9sp"
+                        android:text="@string/txt_cancel"
+                        android:textAllCaps="false"
+                        android:textColor="@color/cool_grey"
+                        android:textSize="@dimen/medium_text" />
+
+                    <androidx.appcompat.widget.AppCompatButton
+                        android:id="@+id/btn_block"
+                        android:layout_width="0dp"
+                        android:layout_height="45dp"
+                        android:layout_gravity="center"
+                        android:layout_weight="45"
+                        android:background="@drawable/confirm_button_states_bg"
+                        android:fontFamily="@font/quicksand_semibold"
+                        android:gravity="center"
+                        android:lineSpacingExtra="9sp"
+                        android:text="@string/lock"
+                        android:textAllCaps="false"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/medium_text" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressDialog"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_centerInParent="true"
+        android:layout_gravity="center"
+        android:indeterminateDrawable="@drawable/custom_progress_bar"
+        android:indeterminate="true"
+        android:visibility="gone" />
+</RelativeLayout>

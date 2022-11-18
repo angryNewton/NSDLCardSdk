@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/top_header_layout" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/btn_set_limit"
+            android:layout_below="@+id/toolbar"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/margin_top_20"
+            tools:ignore="UselessParent">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rV_limit_transaction"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="visible"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/card_limit_items" />
+        </LinearLayout>
+
+        <ProgressBar
+            android:id="@+id/progressDialog"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:layout_gravity="center"
+            android:indeterminateDrawable="@drawable/custom_progress_bar"
+            android:indeterminate="true"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/no_transactions_title_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="@dimen/margin_top_20"
+            android:fontFamily="@font/quicksand_semibold"
+            android:text="@string/no_data_found"
+            android:textColor="@color/white"
+            android:textSize="@dimen/medium_text"
+            android:visibility="gone" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btn_set_limit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="@dimen/text_size_15"
+            android:layout_marginTop="@dimen/dimen_12"
+            android:layout_marginEnd="@dimen/text_size_15"
+            android:layout_marginBottom="@dimen/dimen_12"
+            android:background="@drawable/submit_btn_states_bg"
+            android:fontFamily="@font/quicksand_semibold"
+            android:gravity="center"
+            android:padding="@dimen/margin_top_10"
+            android:text="@string/update_limit_btn_txt"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            android:textSize="@dimen/normal_text" />
+    </RelativeLayout>
+</layout>

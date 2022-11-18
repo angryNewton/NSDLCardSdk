@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="purple_200">#FFBB86FC</color>
+    <color name="purple_500">#FF6200EE</color>
+    <color name="purple_700">#FF3700B3</color>
+    <color name="teal_200">#FF03DAC5</color>
+    <color name="teal_700">#FF018786</color>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <color name="colorPrimary">#1057FB</color>
+    <color name="colorPrimaryDark">#1057FB</color>
+    <color name="colorAccent">#1057FB</color>
+    <color name="bg_bill_paymnt_bg">#EDF2FE</color>
+    <color name="ice_blue_dark">#DFE9FE</color>
+    <color name="bluey_grey_two">#696969</color>
+    <color name="btn_colorAccent">#801057FB</color>
+    <color name="cool_grey">#A4A4A4</color>
+    <color name="bluey_grey">#9a9cb8</color>
+    <color name="txt_bill_items">#1D1D1F</color>
+    <color name="grey">#CDCDCD</color>
+    <color name="white_two">#f7f7f7</color>
+    <color name="colorGrey">#dddddd</color>
+    <color name="cool_grey_two">#b6b8c4</color>
+    <color name="transparent_popup_bg">#1D1D1F99</color>
+    <color name="grey_button_disable">@color/cool_grey</color>
+    <color name="color_congrats">#5e31a5</color>
+    <color name="hint_color_light">#A4A4A4</color>
+    <color name="hint_color_dark">#696969</color>
+    <color name="bg_kyb_kyc_document_list_item">#E9E9E9</color>
+    <color name="sun_yellow">#ffd836</color>
+    <color name="maize">#f8d643</color>
+    <color name="dark_seven">#232641</color>
+    <color name="dark_four">#1c1c34</color>
+    <color name="text_color">#011e40</color>
+    <color name="green_text_color">#3ab273</color>
+    <color name="red_text_color">#d23129</color>
+    <color name="gray_text_color">#80011e40</color>
+    <color name="divider">#e1e5e6</color>
+    <color name="change_text">#008fb0</color>
+    <color name="box_color_1">#29011e40</color>
+</resources>

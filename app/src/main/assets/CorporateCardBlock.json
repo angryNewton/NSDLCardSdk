@@ -1,0 +1,20 @@
+{
+  "cardReferenceNumber":"213350188175",
+  "responseMessage":"This is a temporary action, your can unblock your card later",
+  "cardBlockReasons":[{
+    "reasonId":1,
+    "reasonMessage":"My card is misplaced."
+  },
+    {
+      "reasonId":2,
+      "reasonMessage":"I want to stop usage temporarily."
+    },
+    {
+      "reasonId":3,
+      "reasonMessage":"Others"
+    }
+  ]
+
+
+
+}
