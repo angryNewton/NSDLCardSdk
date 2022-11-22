@@ -27,7 +27,7 @@
     <string name="txt_coroprate_generate_6_digit_code">We will send you a 6 digit code on your registered mobile number.</string>
     <string name="txt_coroprate_generate_otp">Generate OTP</string>
     <string name="txt_otp_sent_msg">We have sent you a 6 digit code on your registered mobile number.</string>
-    <string name="txt_coroprate_set_your_pin">Please set your corporate Card PIN</string>
+    <string name="txt_coroprate_set_your_pin">Please set your debit Card PIN</string>
     <string name="set_pin">Set PIN</string>
     <string name="enter_confirm_pin">Enter 4 digit Confirm Pin </string>
     <string name="confirm_pin">Confirm PIN</string>

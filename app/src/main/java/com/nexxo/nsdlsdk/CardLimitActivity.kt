@@ -5,6 +5,7 @@ import android.app.Dialog
 import android.content.Context
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
@@ -13,6 +14,7 @@ import android.text.InputType
 import android.view.View
 import android.view.Window
 import android.widget.LinearLayout
+import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
 import androidx.fragment.app.FragmentActivity
@@ -35,6 +37,7 @@ class CardLimitActivity : AppCompatActivity() {
     lateinit var activity:Activity
     private lateinit var viewModel: CardLimitActivityViewModel
 
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCardLimitBinding.inflate(layoutInflater)
@@ -44,13 +47,20 @@ class CardLimitActivity : AppCompatActivity() {
             CardLimitActivityViewModel::class.java
         )
 
-        binding.edtEcomLimit.text = Editable.Factory.getInstance().newEditable(Utility.removeDecimal(Constants.customerData!!.EComLimit.toString()))
-        binding.edtPosLimit.text = Editable.Factory.getInstance().newEditable(Utility.removeDecimal(Constants.customerData!!.POSLimit.toString()))
-        binding.edtAtmLimit.text = Editable.Factory.getInstance().newEditable(Utility.removeDecimal(Constants.customerData!!.ATMLimit.toString()))
+        if (Constants.customerData!=null) {
+            binding.edtEcomLimit.text = Editable.Factory.getInstance()
+                .newEditable(Utility.removeDecimal(Constants.customerData!!.EComLimit.toString()))
+            binding.edtPosLimit.text = Editable.Factory.getInstance()
+                .newEditable(Utility.removeDecimal(Constants.customerData!!.POSLimit.toString()))
+            binding.edtAtmLimit.text = Editable.Factory.getInstance()
+                .newEditable(Utility.removeDecimal(Constants.customerData!!.ATMLimit.toString()))
 
-        binding.enableAtmWithdrawal.isChecked = Constants.customerData!!.DomesticATM.equals("Y")
-        binding.enableContactless.isChecked = Constants.customerData!!.DomesticContactless.equals("Y")
-
+            binding.enableAtmWithdrawal.isChecked = Constants.customerData!!.DomesticATM.equals("Y")
+            binding.enableContactless.isChecked =
+                Constants.customerData!!.DomesticContactless.equals("Y")
+            binding.enableEcom.isChecked = Constants.customerData!!.DomesticECOM.equals("Y")
+            binding.enablePos.isChecked = Constants.customerData!!.DomesticPOS.equals("Y")
+        }
         if (binding.enableContactless.isChecked){
             binding.txtLock.text = "Unlocked"
             binding.txtLock.setTextColor(Color.GREEN)
@@ -59,8 +69,31 @@ class CardLimitActivity : AppCompatActivity() {
             binding.txtLock.setTextColor(Color.RED)
         }
 
-        binding.enableEcom.isChecked = Constants.customerData!!.DomesticECOM.equals("Y")
-        binding.enablePos.isChecked = Constants.customerData!!.DomesticPOS.equals("Y")
+        if (binding.enableAtmWithdrawal.isChecked){
+            binding.txtAtmActive.text = "ACTIVE"
+            binding.txtAtmActive.setTextColor(Color.GREEN)
+        }else{
+            binding.txtAtmActive.text = "INACTIVE"
+            binding.txtAtmActive.setTextColor(Color.RED)
+        }
+
+        if (binding.enableEcom.isChecked){
+            binding.txtEcomActive.text = "ACTIVE"
+            binding.txtEcomActive.setTextColor(Color.GREEN)
+        }else{
+            binding.txtEcomActive.text = "INACTIVE"
+            binding.txtEcomActive.setTextColor(Color.RED)
+        }
+
+        if (binding.enablePos.isChecked){
+            binding.txtPosActive.text = "ACTIVE"
+            binding.txtPosActive.setTextColor(Color.GREEN)
+        }else{
+            binding.txtPosActive.text = "INACTIVE"
+            binding.txtPosActive.setTextColor(Color.RED)
+        }
+
+
 
         binding.toolbar.llBackArrow.setOnClickListener {
             finish()
@@ -85,14 +118,18 @@ class CardLimitActivity : AppCompatActivity() {
 
         binding.txtChangeEcomLimit.setOnClickListener {
             if (binding.enableEcom.isChecked){
-                binding.edtEcomLimit.inputType = InputType.TYPE_CLASS_NUMBER
+
+                binding.edtEcomLimit.isEnabled = true
                 binding.edtEcomLimit.isClickable = true
+
+                binding.edtEcomLimit.inputType = InputType.TYPE_CLASS_NUMBER
+                binding.edtEcomLimit.requestFocus()
                 var amount:String = binding.edtEcomLimit.text.toString()
                 var edtAmount = Editable.Factory.getInstance().newEditable(amount)
                 binding.edtEcomLimit.visibility = View.VISIBLE
-                binding.edtEcomLimit.isEnabled = true
+
                 binding.edtEcomLimit.text = edtAmount
-                binding.edtEcomLimit.requestFocus()
+
                 Utility.showKeyboard(activity)
                // binding.txtEcomLimit.visibility = View.GONE
 

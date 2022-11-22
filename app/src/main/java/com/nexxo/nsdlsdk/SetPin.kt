@@ -58,6 +58,10 @@ class SetPin :AppCompatActivity() {
         binding?.toolbar?.tvHeaderText!!.text =
             resources.getString(R.string.txt_generate_pin)
         binding?.toolbar?.llBackArrow!!.setOnClickListener(::onBackClicked)
+
+        binding.toolbar.llBackArrow.setOnClickListener {
+            finish()
+        }
         initXMLComponents()
 
     }

@@ -72,6 +72,7 @@
                         android:textSize="@dimen/text_size_16" />
 
                     <TextView
+                        android:id="@+id/txt_ecom_active"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -110,9 +111,11 @@
                             android:id="@+id/edt_ecom_limit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:minWidth="50dp"
                             android:background="@null"
                             android:layout_marginStart="2dp"
                             android:editable="false"
+                            android:maxLength="7"
                             android:fontFamily="@font/quicksand_medium"
                             android:inputType="number"
                             android:text=""
@@ -228,6 +231,7 @@
                         android:textSize="@dimen/text_size_16" />
 
                     <TextView
+                        android:id="@+id/txt_pos_active"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -265,8 +269,10 @@
                             android:id="@+id/edt_pos_limit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:minWidth="50dp"
                             android:fontFamily="@font/quicksand_medium"
                             android:text="2,500"
+                            android:maxLength="7"
                             android:enabled="false"
                             android:layout_marginStart="2dp"
                             android:textColor="@color/text_color"
@@ -378,6 +384,7 @@
                         android:textSize="@dimen/text_size_16" />
 
                     <TextView
+                        android:id="@+id/txt_atm_active"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="2dp"
@@ -415,8 +422,10 @@
                             android:id="@+id/edt_atm_limit"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:minWidth="50dp"
                             android:fontFamily="@font/quicksand_medium"
                             android:text="2,500"
+                            android:maxLength="7"
                             android:enabled="false"
                             android:background="@null"
                             android:textColor="@color/text_color"

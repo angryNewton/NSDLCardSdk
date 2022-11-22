@@ -238,7 +238,12 @@ class CardBlockBottomSheetFragment(
             msgobj.put("internationalCard","2")
             msgobj.put("sessionId",Constants.SESSIONID)
             msgobj.put("status","1")
-            msgobj.put("userremark","NA")
+            if (cardBlockResponse!=null){
+                msgobj.put("userremark", cardBlockResponse!!.reasonMessage)
+            }else{
+                msgobj.put("userremark", "NA")
+            }
+
 
             jObject.put("appdtls", appIdObject)
             jObject.put("deviceidentifier", deviceIdentifireObject)
