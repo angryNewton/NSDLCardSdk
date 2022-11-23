@@ -214,7 +214,7 @@ class CardDashboard : Fragment() {
         viewModel.cardDetail.observe(activity as FragmentActivity) {
             binding.progressDialog.visibility = View.GONE
             Constants.customerData = it.responsedata!!.CustomerData[0]
-
+            Constants.SESSION_ACTIVE = true
             if (it.responsedata != null) {
                 var custname = it.responsedata!!.CustomerData[0].CustomerName.toString()
                 Utility.logData("Customer name *** $custname")
@@ -834,7 +834,11 @@ class CardDashboard : Fragment() {
     override fun onResume() {
         super.onResume()
         loadAnimations()
-        createSessionRequest()
+        if (Constants.SESSION_ACTIVE){
+            createCardDetailRequest()
+        }else{
+            createSessionRequest()
+        }
     }
 
 

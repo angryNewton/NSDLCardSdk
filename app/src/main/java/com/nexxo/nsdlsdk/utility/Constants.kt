@@ -59,6 +59,7 @@ class Constants {
         var MAX_POS_LIMIT: Double= 50000.0
         var MAX_ECOM_LIMIT: Double= 25000.0
         var MAX_ATM_LIMIT: Double= 20000.0
+        var SESSION_ACTIVE: Boolean= false
 
 
 
