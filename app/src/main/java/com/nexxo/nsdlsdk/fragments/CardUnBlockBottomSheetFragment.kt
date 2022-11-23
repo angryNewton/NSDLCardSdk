@@ -227,8 +227,8 @@ class CardUnBlockBottomSheetFragment(context: Context) : BottomSheetDialogFragme
             jObject.put("token", SdkConfig.token)
 
             var encryptedData = Utility.encryptpayload(jObject.toString(), Constants.ENCRYPTION_KEY)
-            Utility.logData("Decrytped data $jObject")
-            Utility.logData("Encrytped data $encryptedData")
+          //  Utility.logData("Decrytped data $jObject")
+          //  Utility.logData("Encrytped data $encryptedData")
             mainObj.put("channelid", SdkConfig.channelId)
             mainObj.put("appid", SdkConfig.appID)
             mainObj.put("partnerid", SdkConfig.partnerId)
@@ -247,7 +247,7 @@ class CardUnBlockBottomSheetFragment(context: Context) : BottomSheetDialogFragme
             Constants.REQUESTID = reqId.toString()
             viewModel.blockCard(mainObj.toString(),headers)
             binding.progressDialog.visibility = View.VISIBLE
-            Utility.logData("Block card request request "+mainObj.toString())
+            Utility.logData("unBlock card request request "+mainObj.toString())
 
         } catch (e: Exception) {
             e.printStackTrace()

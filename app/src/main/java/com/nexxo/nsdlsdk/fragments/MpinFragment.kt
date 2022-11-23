@@ -203,8 +203,8 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
             mainObj.put("appdtls",appIdObject)
 
             var encryptedData = Utility.encryptpayload(jObject.toString(), Constants.ENCRYPTION_KEY)
-            Utility.logData("Decrytped data $jObject")
-            Utility.logData("Encrytped data $encryptedData")
+          //  Utility.logData("Decrytped data $jObject")
+          //  Utility.logData("Encrytped data $encryptedData")
             mainObj.put("channelid", SdkConfig.channelId)
             var reqId = Utility.generateSequenceNumber()
           //  mainObj.put("requestid",reqId)
@@ -282,7 +282,7 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
             Constants.REQUESTID = reqId.toString()
             viewModel.verifyMpin(mainObj.toString())
 
-            Utility.logData("%%%%%% mpin verification request %%%%% $mainObj")
+            Utility.logData(" mpin verification request  $mainObj")
 
 
         } catch (e: Exception) {

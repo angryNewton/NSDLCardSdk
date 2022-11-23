@@ -179,7 +179,6 @@ class CardDashboard : Fragment() {
             DashboardViewModel::class.java
         )
 
-        createSessionRequest()
 
         viewModel.token.observe(activity as FragmentActivity) {
             Constants.SESSIONID = it.responsedata!!.SessionId.toString()
@@ -209,7 +208,7 @@ class CardDashboard : Fragment() {
                 //  binding.layoutCardBack.tvSecurityDate.text = it.responsedata!!.CustomerData[0].CVV
 
             }
-           
+
         }
 
         viewModel.cardDetail.observe(activity as FragmentActivity) {
@@ -252,7 +251,9 @@ class CardDashboard : Fragment() {
                 Constants.CARDNO = cardNumber.toString()
                 Constants.CARD_EXPIRY ="$result1/$result2"
                 Constants.CARD_EXPIRY_TV ="$result2/$result1"
-                enableEcomRequest()
+                if (it.responsedata!!.CustomerData[0].DomesticECOM.equals("N")){
+                    enableEcomRequest()
+                }
                 setCardNumber(Constants.CARDNO,true)
 
                 if (!it.responsedata!!.CustomerData[0].IsPDC.equals("Y")){
@@ -833,6 +834,7 @@ class CardDashboard : Fragment() {
     override fun onResume() {
         super.onResume()
         loadAnimations()
+        createSessionRequest()
     }
 
 

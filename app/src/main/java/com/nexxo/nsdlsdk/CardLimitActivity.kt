@@ -279,7 +279,7 @@ class CardLimitActivity : AppCompatActivity() {
 
             //   val decObj = jsonObject.toString().replace("\\n", "").replace("\\r", "")
             var encData = Utility.encryptpayload(jsonObject.toString(), Constants.ENCRYPTION_KEY)
-            Utility.logData("decrypted cvv request data "+jsonObject.toString())
+         //   Utility.logData("decrypted cvv request data "+jsonObject.toString())
 
             var reqId = Utility.generateSequenceNumber()
             var mainObject = MainObject()
@@ -307,7 +307,7 @@ class CardLimitActivity : AppCompatActivity() {
 
             viewModel.setLimit(jsonObjectMain.toString(),headers)
             binding.progressDialog.visibility = View.VISIBLE
-            Utility.logData("get CVV request "+jsonObjectMain.toString())
+            Utility.logData("update limit request "+jsonObjectMain.toString())
 
 
         } catch (e: Exception) {
@@ -382,8 +382,8 @@ class CardLimitActivity : AppCompatActivity() {
             mainObj.put("type","D" )
 
             var encryptedData = Utility.encryptpayload(mainObj.toString(), Constants.ENCRYPTION_KEY)
-            Utility.logData("Decrytped data ecom emable $mainObj")
-            Utility.logData("Encrytped data $encryptedData")
+        //    Utility.logData("Decrytped data ecom emable $mainObj")
+        //    Utility.logData("Encrytped data $encryptedData")
 
 
             parentObj.put("encdata", encryptedData)
@@ -397,7 +397,7 @@ class CardLimitActivity : AppCompatActivity() {
             Constants.REQUESTID = reqId.toString()
             viewModel.enableTransactions(parentObj.toString(),headers)
             binding.progressDialog.visibility = View.VISIBLE
-            Utility.logData("ecom request "+parentObj.toString())
+            Utility.logData("enable transactions type  "+parentObj.toString())
 
 
         } catch (e: Exception) {

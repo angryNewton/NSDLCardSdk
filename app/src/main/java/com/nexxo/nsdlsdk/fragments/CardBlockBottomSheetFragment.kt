@@ -257,8 +257,8 @@ class CardBlockBottomSheetFragment(
             jObject.put("token", SdkConfig.token)
 
             var encryptedData = Utility.encryptpayload(jObject.toString(), Constants.ENCRYPTION_KEY)
-            Utility.logData("Decrytped data $jObject")
-            Utility.logData("Encrytped data $encryptedData")
+          //  Utility.logData("Decrytped data $jObject")
+          //  Utility.logData("Encrytped data $encryptedData")
             mainObj.put("channelid", SdkConfig.channelId)
             mainObj.put("appid", SdkConfig.appID)
             mainObj.put("partnerid", SdkConfig.partnerId)

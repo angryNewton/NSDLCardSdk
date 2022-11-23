@@ -173,7 +173,7 @@ class SetPin :AppCompatActivity() {
 
             //   val decObj = jsonObject.toString().replace("\\n", "").replace("\\r", "")
             var encData = Utility.encryptpayload(jsonObject.toString(),Constants.ENCRYPTION_KEY)
-            Utility.logData("decrypted cvv request data "+jsonObject.toString())
+          //  Utility.logData("decrypted cvv request data "+jsonObject.toString())
 
             var reqId = Utility.generateSequenceNumber()
             var mainObject = MainObject()
@@ -202,7 +202,7 @@ class SetPin :AppCompatActivity() {
 
             viewModel.setPin(jsonObjectMain.toString(),headers)
             binding.progressDialog.visibility = View.VISIBLE
-            Utility.logData("get CVV request "+jsonObjectMain.toString())
+            Utility.logData("set pin request "+jsonObjectMain.toString())
 
 
         } catch (e: Exception) {

@@ -121,7 +121,7 @@ class ActivityDashboardCard : AppCompatActivity() {
             DashboardViewModel::class.java
         )
 
-        createSessionRequest()
+
 
         viewModel.token.observe(activity as FragmentActivity) {
             Constants.SESSIONID = it.responsedata!!.SessionId.toString()
@@ -180,7 +180,9 @@ class ActivityDashboardCard : AppCompatActivity() {
                 Constants.CARDNO = cardNumber.toString()
                 Constants.CARD_EXPIRY ="$result1/$result2"
                 Constants.CARD_EXPIRY_TV ="$result2/$result1"
+                if (it.responsedata!!.CustomerData[0].DomesticECOM.equals("N")){
                 enableEcomRequest()
+                }
                 setCardNumber(Constants.CARDNO,true)
                 if (it.responsedata!!.CustomerData[0].HoldRspCode == 5){
                     Constants.iscardBlocked = true
@@ -323,8 +325,8 @@ class ActivityDashboardCard : AppCompatActivity() {
             jObject.put("token", SdkConfig.token)
 
             var encryptedData = Utility.encryptpayload(jObject.toString(), Constants.ENCRYPTION_KEY)
-            Utility.logData("Decrytped data $jObject")
-            Utility.logData("Encrytped data $encryptedData")
+        //    Utility.logData("Decrytped data $jObject")
+        //    Utility.logData("Encrytped data $encryptedData")
             mainObj.put("channelid", SdkConfig.channelId)
             mainObj.put("appid", SdkConfig.appID)
             mainObj.put("partnerid", SdkConfig.partnerId)
@@ -395,8 +397,8 @@ class ActivityDashboardCard : AppCompatActivity() {
             mainObj.put("type","D" )
 
             var encryptedData = Utility.encryptpayload(mainObj.toString(), Constants.ENCRYPTION_KEY)
-            Utility.logData("Decrytped data ecom emable $mainObj")
-            Utility.logData("Encrytped data $encryptedData")
+          //  Utility.logData("Decrytped data ecom emable $mainObj")
+          //  Utility.logData("Encrytped data $encryptedData")
 
 
             parentObj.put("encdata", encryptedData)
@@ -410,7 +412,7 @@ class ActivityDashboardCard : AppCompatActivity() {
             Constants.REQUESTID = reqId.toString()
             viewModel.enableEcom(parentObj.toString(),headers)
             binding.progressDialog.visibility = View.VISIBLE
-            Utility.logData("ecom request "+parentObj.toString())
+            Utility.logData("enable ecom request "+parentObj.toString())
 
 
         } catch (e: Exception) {
@@ -456,8 +458,8 @@ class ActivityDashboardCard : AppCompatActivity() {
             jObject.put("msg",dataObj)
 
             var encryptedData = Utility.encryptpayload(jObject.toString(), Constants.ENCRYPTION_KEY)
-            Utility.logData("Decrytped data $jObject")
-            Utility.logData("Encrytped data $encryptedData")
+         //   Utility.logData("Decrytped data $jObject")
+         //   Utility.logData("Encrytped data $encryptedData")
             mainObj.put("channelid", SdkConfig.channelId)
             mainObj.put("appid", SdkConfig.appID)
             mainObj.put("partnerid", SdkConfig.partnerId)
@@ -598,7 +600,7 @@ class ActivityDashboardCard : AppCompatActivity() {
 
          //   val decObj = jsonObject.toString().replace("\\n", "").replace("\\r", "")
             var encData = Utility.encryptpayload(jsonObject.toString(),Constants.ENCRYPTION_KEY)
-            Utility.logData("decrypted cvv request data "+jsonObject.toString())
+          //  Utility.logData("get cvv request data "+jsonObject.toString())
 
            // var gson = Gson()
             var json = gson.toJson(mainObject)
@@ -683,7 +685,7 @@ class ActivityDashboardCard : AppCompatActivity() {
             jsonObject.put("channelid",SdkConfig.channelId)
 
             var encData = Utility.encryptpayload(jsonObject.toString(),Constants.ENCRYPTION_KEY)
-            Utility.logData("decrypted ordercard request data "+jsonObject.toString())
+         //   Utility.logData("decrypted ordercard request data "+jsonObject.toString())
 
 
             //  val json = ObjectMapper().writer().writeValueAsString(mainObject)
@@ -764,5 +766,8 @@ class ActivityDashboardCard : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         loadAnimations()
+        createSessionRequest()
     }
+
+
 }
