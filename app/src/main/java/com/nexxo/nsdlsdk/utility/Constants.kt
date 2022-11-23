@@ -56,9 +56,9 @@ class Constants {
         var PUSHNKEY = "ehy_bhncSVS0mecz8aWuOI:APA91bGH5hAbvXEWzQxr51bdZUZD8Y5_3hHGmOyUyBb8rJT_HtdhoTi9-W7-dTaSN3sj459IbmHSvMrUUPYJcZh5u6p1PXbUcVI0-9A-6Z_BXQ_VVh9D-vO0vJYa3KS7lZEOAig8rIjg"
         var customerData:CustomerData?= null
         var iscardBlocked: Boolean= false
-        var MAX_POS_LIMIT: String= "50000"
-        var MAX_ECOM_LIMIT: String= "25000"
-        var MAX_ATM_LIMIT: String= "20000"
+        var MAX_POS_LIMIT: Double= 50000.0
+        var MAX_ECOM_LIMIT: Double= 25000.0
+        var MAX_ATM_LIMIT: Double= 20000.0
 
 
 

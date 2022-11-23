@@ -14,6 +14,7 @@ import android.text.InputType
 import android.view.View
 import android.view.Window
 import android.widget.LinearLayout
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.appcompat.widget.AppCompatImageView
 import androidx.appcompat.widget.AppCompatTextView
@@ -103,7 +104,19 @@ class CardLimitActivity : AppCompatActivity() {
         viewModel.ecomEnale.observe(activity as FragmentActivity) {
             binding.progressDialog.visibility = View.GONE
             Utility.logData("Ecom resp "+it.response)
-            updateLimit()
+            var atmLimit =binding.edtAtmLimit.text.toString().toDouble()
+            var posLimit =binding.edtPosLimit.text.toString().toDouble()
+            var ecomLimit =binding.edtEcomLimit.text.toString().toDouble()
+            if (atmLimit>Constants.MAX_ATM_LIMIT){
+                Toast.makeText(this,"Atm max limit is INR "+Constants.MAX_ATM_LIMIT,Toast.LENGTH_SHORT).show()
+            }else if (posLimit>Constants.MAX_POS_LIMIT){
+                Toast.makeText(this,"POS max limit is INR "+Constants.MAX_ATM_LIMIT,Toast.LENGTH_SHORT).show()
+            }else if (ecomLimit>Constants.MAX_ECOM_LIMIT){
+                Toast.makeText(this,"Ecom max limit is INR "+Constants.MAX_ATM_LIMIT,Toast.LENGTH_SHORT).show()
+            }else{
+                updateLimit()
+            }
+
         }
 
         viewModel.updateLimitLive.observe(activity as FragmentActivity) {

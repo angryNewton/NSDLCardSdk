@@ -142,18 +142,24 @@ class ActivityDashboardCard : AppCompatActivity() {
         viewModel.CVVDATA.observe(activity as FragmentActivity) {
             Utility.logData("Session ID *** "+it.response.toString())
             binding.progressDialog.visibility = View.GONE
+
             mpin.closeDialog()
             mpin.resetPin()
             cardBackBinding.scShowNumber.isChecked = true
             cardBackBinding.tvExpiryDate.text = Constants.CARD_EXPIRY_TV
-            binding.layoutCardBack.tvSecurityDate.text = it.responsedata!!.CustomerData[0].CVV
-            it.responsedata!!.CustomerData[0].cardNo?.let { it1 -> setCardNumber(it1,false) }
-          //  binding.layoutCardBack.tvSecurityDate.text = it.responsedata!!.CustomerData[0].CVV
+
+            if (it.responsedata!!.CustomerData!=null && it.responsedata!!.CustomerData.size>0){
+                binding.layoutCardBack.tvSecurityDate.text = it.responsedata!!.CustomerData[0].CVV
+                it.responsedata!!.CustomerData[0].cardNo?.let { it1 -> setCardNumber(it1,false) }
+                //  binding.layoutCardBack.tvSecurityDate.text = it.responsedata!!.CustomerData[0].CVV
+
+            }
 
         }
 
         viewModel.cardDetail.observe(activity as FragmentActivity) {
             binding.progressDialog.visibility = View.GONE
+
             Constants.customerData = it.responsedata!!.CustomerData[0]
 
             if (it.responsedata != null) {
