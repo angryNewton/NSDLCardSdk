@@ -93,7 +93,7 @@
                         android:layout_marginTop="@dimen/margin_top_10"
                         android:background="@android:color/transparent"
                         android:orientation="vertical"
-                        android:visibility="visible"
+                        android:visibility="gone"
                         app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
                         tools:listitem="@layout/card_block_list_items" />
 

@@ -28,6 +28,8 @@ import com.nexxo.nsdlsdk.apiscall.MainRepository
 import com.nexxo.nsdlsdk.apiscall.RetrofitService
 import com.nexxo.nsdlsdk.databinding.ActivityGenerateOtpBinding
 import com.nexxo.nsdlsdk.dto.*
+import com.nexxo.nsdlsdk.fragments.MpinFragment
+import com.nexxo.nsdlsdk.interfaces.iCvvCommunitor
 import com.nexxo.nsdlsdk.model.PinResponse
 import com.nexxo.nsdlsdk.utility.SdkConfig
 import com.nexxo.nsdlsdk.viewmodel.DashboardViewModel
@@ -46,6 +48,7 @@ class SetPin :AppCompatActivity() {
     private lateinit var activity: Activity
     private var isFrom: Int? = 0
     private lateinit var viewModel: SetPinViewModel
+    lateinit var mpin: MpinFragment
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -62,6 +65,8 @@ class SetPin :AppCompatActivity() {
         binding.toolbar.llBackArrow.setOnClickListener {
             finish()
         }
+        mpin = MpinFragment(activity)
+        mpin.updater(updateCvv)
         initXMLComponents()
 
     }
@@ -102,9 +107,22 @@ class SetPin :AppCompatActivity() {
     private fun resendPinClicked(view: View?) {
         if (validation()) {
             Utility.hideKeypad(activity)
-            createsetPinRequest()
+
+            mpin.show(
+                supportFragmentManager,
+                mpin.tag
+            )
+
+
         }
 
+    }
+
+
+    var updateCvv: iCvvCommunitor = object : iCvvCommunitor {
+        override fun fetchCvv() {
+            createsetPinRequest()
+        }
     }
 
     private fun validation(): Boolean {

@@ -198,7 +198,7 @@ class CardDashboard : Fragment() {
         viewModel.CVVDATA.observe(activity as FragmentActivity) {
             Utility.logData("Session ID *** "+it.response.toString())
             binding.progressDialog.visibility = View.GONE
-            mpin.closeDialog()
+           // mpin.closeDialog()
             mpin.resetPin()
             cardBackBinding.scShowNumber.isChecked = true
             cardBackBinding.tvExpiryDate.text = Constants.CARD_EXPIRY_TV

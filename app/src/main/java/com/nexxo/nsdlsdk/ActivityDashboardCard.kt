@@ -70,6 +70,8 @@ class ActivityDashboardCard : AppCompatActivity() {
             flipCard(it)
         }
 
+        binding.creditCardFront.isEnabled = false
+
       /*  var da:TokenData = TokenData(activity)
         da.createSessionRequest(d)*/
      //   mpin.getTokenData(d,activity)
@@ -143,7 +145,7 @@ class ActivityDashboardCard : AppCompatActivity() {
             Utility.logData("Session ID *** "+it.response.toString())
             binding.progressDialog.visibility = View.GONE
 
-            mpin.closeDialog()
+          //  mpin.closeDialog()
             mpin.resetPin()
             cardBackBinding.scShowNumber.isChecked = true
             cardBackBinding.tvExpiryDate.text = Constants.CARD_EXPIRY_TV

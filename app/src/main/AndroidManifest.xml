@@ -44,6 +44,7 @@
         <activity
             android:name=".SetPin"
             android:exported="false"
+            android:theme="@style/AppThemeTextInput"
             android:screenOrientation="portrait" />
         <activity
             android:name=".CardLimitationActivity"

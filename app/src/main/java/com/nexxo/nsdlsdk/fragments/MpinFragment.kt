@@ -125,6 +125,7 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
         viewModel.verifyMpinResponse.observe(activity as FragmentActivity) {
             Utility.logData("Session ID *** "+it.messageval.toString())
            // (activity as ActivityDashboardCard).callFetchCvv()
+            dialog!!.dismiss()
             fetchCvv.fetchCvv()
         }
 

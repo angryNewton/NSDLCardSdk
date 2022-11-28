@@ -145,11 +145,11 @@ class CardBlockBottomSheetFragment(
         })
         binding.btnBlock.setOnClickListener(View.OnClickListener {
             activity?.let {
-                // call api for unblock card
-                if (validation()) {
-                  //  getBlockCardApiCall()
-                    blockCard()
-                }
+                /*if (validation()) {
+
+                }*/
+
+                blockCard()
             }
         })
 
