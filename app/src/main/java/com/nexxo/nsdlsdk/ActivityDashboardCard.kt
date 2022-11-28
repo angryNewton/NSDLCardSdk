@@ -476,6 +476,7 @@ class ActivityDashboardCard : AppCompatActivity() {
             headers["partnerid"] = SdkConfig.partnerId
             headers["requestid"] = reqId.toString()
             Constants.REQUESTID = reqId.toString()
+            binding.progressDialog.visibility = View.VISIBLE
             viewModel.getCardDetails(mainObj.toString(),headers)
             Utility.logData("card details request "+mainObj.toString())
 
