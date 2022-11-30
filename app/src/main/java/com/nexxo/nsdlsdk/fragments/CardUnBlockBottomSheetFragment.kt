@@ -115,69 +115,7 @@ class CardUnBlockBottomSheetFragment(context: Context) : BottomSheetDialogFragme
         })
     }
 
-    private fun callApi() {
-        try {
-            showProgressDialogue()
-            CoroutineScope(
-                Dispatchers.IO + Utility.onErrorCoroutineExceptionHandler(
-                    requireActivity()
-                )
-            ).launch {
-                val response = mainRepository.getCardUnblock()
-                withContext(Dispatchers.Main) {
-                    try {
-                        hideProgressDialogue()
-                        Utility.printRetrofitResponseBodyData(response)
-                        if (response.isSuccessful) {
-                            var cardResponse: CardBlockResponse? = response.body()
-                            if (cardResponse != null) {
-                                //     Utility.callCardInformationApi(requireContext())
-                                Utility.showCrossButtonDialogDismiss(
-                                    requireContext(),
-                                    cardResponse?.message,
-                                    true
-                                )
-                                dialog?.dismiss()
-                            }
-                        } else {
-                            try {
-                                val jObjError = JSONObject(response.errorBody()!!.string())
-                                if (!activity?.let {
-                                        Utility.handleServerSuccessErrorStatusRetrofit(
-                                            it,
-                                            jObjError.toString(),
-                                            response.code()
-                                        )
-                                    }!!
-                                ) {
-                                    activity?.let {
-                                        Utility.showPopUpForHttpStatus(
-                                            it,
-                                            response.errorBody()!!.string(),
-                                            response.code()
-                                        )
-                                    }
-                                }
-                            } catch (e: Exception) {
-                                activity?.let {
-                                    Utility.showAlertPopUpAndFinish(
-                                        it,
-                                        e.localizedMessage
-                                    )
-                                }
-                            }
-                        }
-                    } catch (e: java.lang.Exception) {
-                    }
-                }
-            }
-        } catch (e: Exception) {
-            activity?.let {
-                Utility.logData("Card Errror $it")
-            }
 
-        }
-    }
 
     private fun showProgressDialogue() {
         binding.progressDialog.visibility = View.VISIBLE

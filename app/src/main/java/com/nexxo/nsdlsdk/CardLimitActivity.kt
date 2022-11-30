@@ -13,6 +13,7 @@ import android.text.Editable
 import android.text.InputType
 import android.view.View
 import android.view.Window
+import android.widget.CompoundButton
 import android.widget.LinearLayout
 import android.widget.Toast
 import androidx.annotation.RequiresApi
@@ -25,6 +26,8 @@ import com.google.gson.Gson
 import com.nexxo.nsdlsdk.databinding.ActivityCardLimitBinding
 import com.nexxo.nsdlsdk.databinding.ActivityGenerateOtpBinding
 import com.nexxo.nsdlsdk.dto.*
+import com.nexxo.nsdlsdk.fragments.CardPermanentBlock
+import com.nexxo.nsdlsdk.fragments.CardUnBlockBottomSheetFragment
 import com.nexxo.nsdlsdk.utility.Constants
 import com.nexxo.nsdlsdk.utility.SdkConfig
 import com.nexxo.nsdlsdk.utility.Utility
@@ -230,6 +233,18 @@ class CardLimitActivity : AppCompatActivity() {
             }
         }
 
+        binding.permanentLockSwitch.setOnCheckedChangeListener{ buttonView, isChecked ->
+            if (isChecked){
+                Utility.logData("checked")
+                val bottomSheetUnblockFragment =
+                    CardPermanentBlock(activity)
+                bottomSheetUnblockFragment.show(
+                    supportFragmentManager,
+                    bottomSheetUnblockFragment.tag)
+            }else{
+
+            }
+        }
     }
 
     fun String.toEditable(): Editable =  Editable.Factory.getInstance().newEditable(this)
