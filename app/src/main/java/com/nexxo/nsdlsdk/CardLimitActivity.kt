@@ -107,9 +107,13 @@ class CardLimitActivity : AppCompatActivity() {
         viewModel.ecomEnale.observe(activity as FragmentActivity) {
             binding.progressDialog.visibility = View.GONE
             Utility.logData("Ecom resp "+it.response)
-            var atmLimit =binding.edtAtmLimit.text.toString().toDouble()
-            var posLimit =binding.edtPosLimit.text.toString().toDouble()
-            var ecomLimit =binding.edtEcomLimit.text.toString().toDouble()
+            var atmLimit =binding.edtAtmLimit.text.toString().replace(",","").toDouble()
+            var posLimit =binding.edtPosLimit.text.toString().replace(",","").toDouble()
+            var ecomLimit: Double = 0.0
+            if (!binding.edtEcomLimit.text.toString().replace(",","").isNullOrEmpty()){
+                ecomLimit =binding.edtEcomLimit.text.toString().replace(",","").toDouble()
+            }
+
             if (atmLimit>Constants.MAX_ATM_LIMIT){
                 Toast.makeText(this,"Atm max limit is INR "+Constants.MAX_ATM_LIMIT,Toast.LENGTH_SHORT).show()
             }else if (posLimit>Constants.MAX_POS_LIMIT){
