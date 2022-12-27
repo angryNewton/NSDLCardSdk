@@ -131,6 +131,13 @@ class CardDashboard : Fragment() {
             flipCard(it)
         }
 
+        if (SdkConfig.accountType==1){
+            binding.layoutCardFront.cardFrontImage.background = activity.getDrawable(R.drawable.front_card)
+        }else{
+            binding.layoutCardFront.cardFrontImage.background = activity.getDrawable(R.drawable.debit_card)
+        }
+
+
         binding.cardControlsIv.setOnClickListener {
             try {
                 val activity = Intent(activity, CardLimitActivity::class.java)

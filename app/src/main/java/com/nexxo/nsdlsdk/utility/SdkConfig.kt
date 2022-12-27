@@ -12,6 +12,11 @@ class SdkConfig {
         var token:String = "wmcMfjeBvCZLpgjQEzDFueSATEtPZnwzRAYhmdXBzKHGnMteDwfmzeyQrWbFXaANCxscKGREJLMirMfXBZBZSuPJWzmJEXOCIAixTLjNIrUqrdosvdfpVQWZxfmOegGR"
        // var customerId:String = "32575"
         var customerId:String = "919015245665"
+        /*
+        accountType = 1 // current account
+        accountType = 2 // saving account
+        */
+        var accountType:Int = 1
 
         /*var token:String = "olcSFlyISJgbNrMxkqojpDmiYYjkNUrRPBtXfzEEgUDAwRgjJVbohUFMKMCTFpZiKaztrRBRLrkmUSSiuLYuoweaOvqlpemruCtnihBUNLaCmXuEYbNtmEIZWpegvnI"
         var deviceUniqueID:String = "e1990bda081f6c99AeIoU00000000000000012435"

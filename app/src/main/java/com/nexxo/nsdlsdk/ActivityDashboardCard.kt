@@ -66,6 +66,13 @@ class ActivityDashboardCard : AppCompatActivity() {
         cardBackBinding = binding.layoutCardBack
         mpin = MpinFragment(activity)
         mpin.updater(updateCvv)
+
+        if (SdkConfig.accountType==1){
+            binding.layoutCardFront.cardFrontImage.background = getDrawable(R.drawable.front_card)
+        }else{
+            binding.layoutCardFront.cardFrontImage.background = getDrawable(R.drawable.debit_card)
+        }
+
         binding.fmCard.setOnClickListener {
             flipCard(it)
         }
