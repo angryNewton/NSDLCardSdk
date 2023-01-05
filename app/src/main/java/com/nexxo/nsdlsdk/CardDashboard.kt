@@ -220,6 +220,9 @@ class CardDashboard : Fragment() {
 
         viewModel.cardDetail.observe(activity as FragmentActivity) {
             binding.progressDialog.visibility = View.GONE
+            if (it.responsedata!!.CustomerData == null || it.responsedata!!.CustomerData.size==0){
+                return@observe
+            }
             Constants.customerData = it.responsedata!!.CustomerData[0]
             Constants.SESSION_ACTIVE = true
             if (it.responsedata != null) {
