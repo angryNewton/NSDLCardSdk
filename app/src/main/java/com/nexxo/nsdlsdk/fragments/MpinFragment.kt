@@ -13,6 +13,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.FrameLayout
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.fragment.app.FragmentActivity
 import androidx.lifecycle.ViewModelProvider
@@ -88,6 +89,7 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
         binding.crossIv.setOnClickListener {
             dialog!!.dismiss()
         }
+        binding.mpin.text = "".toEditable()
 
         binding.mpin.addTextChangedListener(object : TextWatcher {
             override fun beforeTextChanged(p0: CharSequence?, p1: Int, p2: Int, p3: Int) {
@@ -105,7 +107,12 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
         })
 
         binding.confirmMpin.setOnClickListener {
-            createSessionRequest()
+            if (binding.mpin.length()==6){
+                createSessionRequest()
+            }else{
+                Toast.makeText(context,"Please enter you Mpin",Toast.LENGTH_SHORT).show()
+            }
+
         }
 
         viewModel.mpinTokenRespData.observe(activity as FragmentActivity) {
@@ -125,8 +132,13 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
         viewModel.verifyMpinResponse.observe(activity as FragmentActivity) {
             Utility.logData("Session ID *** "+it.messageval.toString())
            // (activity as ActivityDashboardCard).callFetchCvv()
-            dialog!!.dismiss()
-            fetchCvv.fetchCvv()
+            try{
+                dialog!!.dismiss()
+                fetchCvv.fetchCvv()
+            }catch (e:Exception){
+                e.printStackTrace()
+            }
+
         }
 
         return binding.root
@@ -402,6 +414,11 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
             e.printStackTrace()
         }
         return encoded.replace("\n", "")
+    }
+
+    override fun onResume() {
+        super.onResume()
+        binding.mpin.text = "".toEditable()
     }
 
 }

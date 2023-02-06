@@ -114,12 +114,14 @@ class CardLimitActivity : AppCompatActivity() {
                 ecomLimit =binding.edtEcomLimit.text.toString().replace(",","").toDouble()
             }
 
-            if (atmLimit>Constants.MAX_ATM_LIMIT){
+            if (ecomLimit>Constants.MAX_ECOM_LIMIT){
+                Toast.makeText(this,"Ecom max limit is INR "+Constants.MAX_ECOM_LIMIT,Toast.LENGTH_SHORT).show()
+            }
+            else if (posLimit>Constants.MAX_POS_LIMIT){
+                Toast.makeText(this,"POS max limit is INR "+Constants.MAX_POS_LIMIT,Toast.LENGTH_SHORT).show()
+            }
+           else if (atmLimit>Constants.MAX_ATM_LIMIT){
                 Toast.makeText(this,"Atm max limit is INR "+Constants.MAX_ATM_LIMIT,Toast.LENGTH_SHORT).show()
-            }else if (posLimit>Constants.MAX_POS_LIMIT){
-                Toast.makeText(this,"POS max limit is INR "+Constants.MAX_ATM_LIMIT,Toast.LENGTH_SHORT).show()
-            }else if (ecomLimit>Constants.MAX_ECOM_LIMIT){
-                Toast.makeText(this,"Ecom max limit is INR "+Constants.MAX_ATM_LIMIT,Toast.LENGTH_SHORT).show()
             }else{
                 updateLimit()
             }
