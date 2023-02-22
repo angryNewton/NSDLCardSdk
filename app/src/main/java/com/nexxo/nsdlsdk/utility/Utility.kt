@@ -9,6 +9,7 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.net.ConnectivityManager
 import android.net.NetworkInfo
+import android.os.Build
 import android.os.Handler
 import android.os.Looper
 import android.text.TextUtils
@@ -601,8 +602,11 @@ class Utility {
                 val cipher = Cipher.getInstance(ALGORITHM)
                 cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv)
                 val encrypted = cipher.doFinal(value.toByteArray())
-                android.util.Base64.decode(encrypted, android.util.Base64.DEFAULT).toString();
-               // Base64.getEncoder().encodeToString(encrypted)
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                    Base64.getEncoder().encodeToString(encrypted)
+                } else {
+                    android.util.Base64.encodeToString(encrypted, android.util.Base64.NO_WRAP)
+                }
 
             } catch (ex: java.lang.Exception) {
                 ex.printStackTrace()
