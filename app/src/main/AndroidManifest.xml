@@ -19,7 +19,7 @@
             android:name=".CardLimitActivity"
             android:theme="@style/AppThemeTextInput"
             android:exported="false" />
-        <activity
+        <!--<activity
             android:name=".ActivityDashboardCard"
             android:exported="true"
             android:theme="@style/AppThemeTextInput"
@@ -29,7 +29,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
+        </activity>-->
         <!--
         <activity
             android:name="com.nexxo.nsdlsdk.CardDashboard"

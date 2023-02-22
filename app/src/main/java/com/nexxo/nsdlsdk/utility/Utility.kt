@@ -47,7 +47,7 @@ class Utility {
 
     companion object {
         fun logData(logData: String) {
-            Log.v("logData", logData);
+          //  Log.v("logData", logData);
         }
 
         fun ParseDouble(strNumber: String?): Double {
@@ -601,7 +601,9 @@ class Utility {
                 val cipher = Cipher.getInstance(ALGORITHM)
                 cipher.init(Cipher.ENCRYPT_MODE, skeySpec, iv)
                 val encrypted = cipher.doFinal(value.toByteArray())
-                Base64.getEncoder().encodeToString(encrypted)
+                android.util.Base64.decode(encrypted, android.util.Base64.DEFAULT).toString();
+               // Base64.getEncoder().encodeToString(encrypted)
+
             } catch (ex: java.lang.Exception) {
                 ex.printStackTrace()
                 null

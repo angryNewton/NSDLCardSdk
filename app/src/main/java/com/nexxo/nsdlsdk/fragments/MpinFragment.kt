@@ -110,7 +110,7 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
             if (binding.mpin.length()==6){
                 createSessionRequest()
             }else{
-                Toast.makeText(context,"Please enter you Mpin",Toast.LENGTH_SHORT).show()
+                Toast.makeText(context,"Please enter your Mpin",Toast.LENGTH_SHORT).show()
             }
 
         }
@@ -130,11 +130,16 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
 
 
         viewModel.verifyMpinResponse.observe(activity as FragmentActivity) {
-            Utility.logData("Session ID *** "+it.messageval.toString())
+            Utility.logData("verify MPIN response "+it.messageval.toString())
            // (activity as ActivityDashboardCard).callFetchCvv()
             try{
                 dialog!!.dismiss()
-                fetchCvv.fetchCvv()
+                if (it.respcode == "99"){
+                    Toast.makeText(context,it.response,Toast.LENGTH_SHORT).show()
+                }else{
+                    fetchCvv.fetchCvv()
+                }
+
             }catch (e:Exception){
                 e.printStackTrace()
             }
