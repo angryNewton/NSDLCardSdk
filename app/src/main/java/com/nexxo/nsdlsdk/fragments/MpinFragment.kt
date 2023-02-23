@@ -334,9 +334,14 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
             //val json = ObjectMapper().writer().writeValueAsString(credBean)
             val formattedJson = json.replace("\\n", "").replace("\\r", "")
 
-            val encoder: Base64.Encoder = Base64.getEncoder()
-            val encodedBase64CredVal: String =
-                encoder.encodeToString(formattedJson.toByteArray())
+           // val encoder: Base64.Encoder = Base64.getEncoder()
+            var encodedBase64CredVal: String = ""
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                encodedBase64CredVal = Base64.getEncoder().encodeToString(formattedJson.toByteArray())
+            } else {
+                encodedBase64CredVal = android.util.Base64.encodeToString(formattedJson.toByteArray(), android.util.Base64.NO_WRAP)
+            }
+          //  val encodedBase64CredVal: String =  encoder.encodeToString(formattedJson.toByteArray())
 
             credVal = encodedBase64CredVal
             ivSpec = secreteData[1]
