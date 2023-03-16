@@ -48,7 +48,7 @@ class Utility {
 
     companion object {
         fun logData(logData: String) {
-          //  Log.v("logData", logData);
+            Log.v("logData", logData);
         }
 
         fun ParseDouble(strNumber: String?): Double {
