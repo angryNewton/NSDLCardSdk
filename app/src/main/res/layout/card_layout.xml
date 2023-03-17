@@ -197,8 +197,8 @@
                                         android:layout_height="wrap_content"
                                         android:layout_margin="@dimen/margin_top_5"
                                         android:layout_weight="1"
-                                        android:visibility="gone"
-                                        app:srcCompat="@drawable/ic_copy_card_number" />
+                                        android:visibility="visible"
+                                        app:srcCompat="@drawable/ic_hce_enable" />
 
                                     <androidx.appcompat.widget.AppCompatImageView
                                         android:id="@+id/reset_pin_iv"
@@ -214,7 +214,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_margin="@dimen/margin_top_5"
                                         android:layout_weight="1"
-                                        app:srcCompat="@drawable/ic_card_unblocked" />
+                                        app:srcCompat="@drawable/ic_lock" />
 
                                     <androidx.appcompat.widget.AppCompatImageView
                                         android:id="@+id/add_money_tv"
@@ -232,7 +232,7 @@
                                         android:layout_margin="@dimen/margin_top_5"
                                         android:layout_weight="1"
                                         android:visibility="visible"
-                                        app:srcCompat="@drawable/ic_manage_card_controls" />
+                                        app:srcCompat="@drawable/ic_setting" />
 
                                 </LinearLayout>
 
