@@ -30,8 +30,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>-->
-        <!--
-        <activity
+
+       <!-- <activity
             android:name="com.nexxo.nsdlsdk.CardDashboard"
             android:theme="@style/AppThemeTextInput"
             android:exported="true">
@@ -40,8 +40,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        -->
+        </activity>-->
         <activity
             android:name=".SetPin"
             android:exported="false"

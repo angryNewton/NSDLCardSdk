@@ -27,7 +27,7 @@
                     android:layout_gravity="center"
                     android:fontFamily="@font/quicksand_semibold"
                     android:gravity="center"
-                    android:text="@string/txt_lock_unlock"
+                    android:text="@string/txt_lock_unblock"
                     android:textColor="@color/colorPrimary"
                     android:textSize="@dimen/text_size_16" />
 
@@ -73,7 +73,7 @@
                     android:layout_gravity="center|start"
                     android:fontFamily="@font/quicksand_semibold"
                     android:gravity="center"
-                    android:text="@string/txt_you_want_to_un_lock"
+                    android:text="@string/txt_you_want_to_unblock"
                     android:textColor="@color/txt_bill_items"
                     android:textSize="@dimen/normal_text" />
 

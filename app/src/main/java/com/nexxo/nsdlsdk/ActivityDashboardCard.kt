@@ -154,7 +154,7 @@ class ActivityDashboardCard : AppCompatActivity() {
 
           //  mpin.closeDialog()
             mpin.resetPin()
-            cardBackBinding.scShowNumber.isChecked = true
+            cardFrontBinding.scShowNumber.isChecked = true
             cardBackBinding.tvExpiryDate.text = Constants.CARD_EXPIRY_TV
 
             if (it.responsedata!!.CustomerData!=null && it.responsedata!!.CustomerData.size>0){
@@ -219,25 +219,25 @@ class ActivityDashboardCard : AppCompatActivity() {
             }
         }
 
-        cardBackBinding.scShowNumber.setOnClickListener {
+        cardFrontBinding.scShowNumber.setOnClickListener {
 
-            if (cardBackBinding.scShowNumber.isChecked){
+            if (cardFrontBinding.scShowNumber.isChecked){
                 mpin.show(
                     supportFragmentManager,
                     mpin.tag
                 )
-                cardBackBinding.scShowNumber.isChecked = false
+                cardFrontBinding.scShowNumber.isChecked = false
             }else{
                 binding.layoutCardBack.tvSecurityDate.text = "***"
                 cardBackBinding.tvExpiryDate.text = "XX/XX"
                 setCardNumber(Constants.CARDNO,true)
             }
-            Utility.logData("ischecked$$$$$$$$$$$$$$$$$ "+cardBackBinding.scShowNumber.isChecked)
+            Utility.logData("ischecked$$$$$$$$$$$$$$$$$ "+cardFrontBinding.scShowNumber.isChecked)
 
         }
 
 
-        cardBackBinding.scShowNumber.setOnCheckedChangeListener { _, isChecked ->
+        cardFrontBinding.scShowNumber.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
 
 

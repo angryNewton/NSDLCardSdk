@@ -7,11 +7,11 @@ class SdkConfig {
         var channelId:String = "RvEirMJEmAOKvmtnGIHy"
         var partnerId:String = "c377bbe133c18bab6360b3f3ed5d8f3f"
         var customerUniqueId:String = "iPeCarquEh00000000000000012304"
-        var deviceID:String = "8a5364d3949ff686"
-        var deviceUniqueID:String = "8a5364d3949ff686AeIoU00000000000000012304"
-        var token:String = "uwxqgoBOuzpOISzDOKPsIYdcvAVWKNGjSRWApepNcUSRsbWXDigVkJnqxTMqBIyNRMOxwoRreiJBzAzyjCrvWuaPljqrmnbughOpPnOiRqWkJnogWEmYCZdCvFojcslL"
+        var deviceID:String = "974e9c720bac0f27"
+        var deviceUniqueID:String = "974e9c720bac0f27AeIoU00000000000000013188"
+        var token:String = "xfPnKRUBHCIAdMidoVnOaoCMGpoVyMOcbNjKXCOKtBNxhUjfugEerTFDUDJJeidjPsKBPxniWAMHIlsBVtzqgUfwQtTClrtItYzwRXORhRlAEyEqxJzKDIfgleDAphqQ"
        // var customerId:String = "32575"
-        var customerId:String = "34535"
+        var customerId:String = "34697"
         /*
         accountType = 1 // current account
         accountType = 2 // saving account

@@ -197,7 +197,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_margin="@dimen/margin_top_5"
                                         android:layout_weight="1"
-                                        android:visibility="visible"
+                                        android:visibility="gone"
                                         app:srcCompat="@drawable/ic_hce_enable" />
 
                                     <androidx.appcompat.widget.AppCompatImageView
@@ -206,6 +206,7 @@
                                         android:layout_height="wrap_content"
                                         android:layout_margin="@dimen/margin_top_5"
                                         android:layout_weight="1"
+                                        android:visibility="gone"
                                         app:srcCompat="@drawable/ic_reset_card_pin" />
 
                                     <androidx.appcompat.widget.AppCompatImageView

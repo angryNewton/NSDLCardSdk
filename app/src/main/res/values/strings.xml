@@ -1,12 +1,12 @@
 <resources>
     <string name="app_name">NSDL-SDK</string>
     <string name="txt_card_holder_name">CARD HOLDER NAME</string>
-    <string name="txt_lock_unlock">Lock/Unlock</string>
+    <string name="txt_lock_unblock">Temporary Block/Unblock</string>
     <string name="txt_are_you_sure">Are you sure?</string>
-    <string name="txt_you_want_to_lock">You want to lock your card.</string>
-    <string name="txt_temporary_action">This is a quick action.You can unlock your card later.</string>
+    <string name="txt_you_want_to_block">You want to temporary block your card.</string>
+    <string name="txt_temporary_action">This is a quick action.You can unblock your card later.</string>
     <string name="txt_cancel">Cancel</string>
-    <string name="lock">Lock</string>
+    <string name="lock">Block</string>
     <string name="txt_Server_is_not_connected_to_internet">Server is not connected to internet.</string>
     <string name="txt_Your_device_is_not_connected_to_internet">Your device is not connected to internet.</string>
     <string name="txt_Bad_Request">Bad Request</string>
@@ -22,7 +22,7 @@
     <string name="txt_your_session_has_expired_please_log_in_again">Your session has expired. Please log in again.</string>
     <string name="txt_select_reason">select reason for block </string>
     <string name="enter_reason">Enter reason</string>
-    <string name="txt_you_want_to_un_lock">You want to unlock your card.</string>
+    <string name="txt_you_want_to_unblock">You want to unblock your card.</string>
     <string name="permanent_block">You want to Block card permanently.</string>
     <string name="unlock">Unlock</string>
     <string name="txt_coroprate_generate_6_digit_code">We will send you a 6 digit code on your registered mobile number.</string>

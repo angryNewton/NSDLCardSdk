@@ -128,7 +128,7 @@ class CardDashboard : Fragment() {
         mpin = MpinFragment(activity)
         mpin.updater(updateCvv)
         binding.fmCard.setOnClickListener {
-            flipCard(it)
+            flipCard()
         }
 
         if (SdkConfig.accountType==1){
@@ -205,9 +205,10 @@ class CardDashboard : Fragment() {
         viewModel.CVVDATA.observe(activity as FragmentActivity) {
             Utility.logData("Session ID *** "+it.response.toString())
             binding.progressDialog.visibility = View.GONE
+            flipCard()
            // mpin.closeDialog()
             mpin.resetPin()
-            cardBackBinding.scShowNumber.isChecked = true
+            cardFrontBinding.scShowNumber.isChecked = true
             cardBackBinding.tvExpiryDate.text = Constants.CARD_EXPIRY_TV
             if (it.responsedata!!.CustomerData!=null && it.responsedata!!.CustomerData.size>0){
                 binding.layoutCardBack.tvSecurityDate.text = it.responsedata!!.CustomerData[0].CVV
@@ -233,14 +234,14 @@ class CardDashboard : Fragment() {
                     Constants.iscardBlocked = true
                     binding.cardBlockIv.setImageDrawable(activity?.let {
                         ContextCompat.getDrawable(
-                            it, R.drawable.ic_card_block
+                            it, R.drawable.ic_lock
                         )
                     })
                 }else{
                     Constants.iscardBlocked = false
                     binding.cardBlockIv.setImageDrawable(activity?.let {
                         ContextCompat.getDrawable(
-                            it, R.drawable.ic_card_unblocked
+                            it, R.drawable.ic_unblock
                         )
                     })
                 }
@@ -268,31 +269,34 @@ class CardDashboard : Fragment() {
 
                 if (!it.responsedata!!.CustomerData[0].IsPDC.equals("Y")){
                     orderCard()
+                    binding.resetPinIv.visibility = View.GONE
+                }else{
+                    binding.resetPinIv.visibility = View.VISIBLE
                 }
 
 
             }
         }
 
-        cardBackBinding.scShowNumber.setOnClickListener {
+        cardFrontBinding.scShowNumber.setOnClickListener {
 
-            if (cardBackBinding.scShowNumber.isChecked){
+            if (cardFrontBinding.scShowNumber.isChecked){
                 mpin.show(
                     childFragmentManager,
                     mpin.tag
                 )
-                cardBackBinding.scShowNumber.isChecked = false
+                cardFrontBinding.scShowNumber.isChecked = false
             }else{
                 binding.layoutCardBack.tvSecurityDate.text = "***"
                 cardBackBinding.tvExpiryDate.text = "XX/XX"
                 setCardNumber(Constants.CARDNO,true)
             }
-            Utility.logData("ischecked$$$$$$$$$$$$$$$$$ "+cardBackBinding.scShowNumber.isChecked)
+            Utility.logData("ischecked$$$$$$$$$$$$$$$$$ "+cardFrontBinding.scShowNumber.isChecked)
 
         }
 
 
-        cardBackBinding.scShowNumber.setOnCheckedChangeListener { _, isChecked ->
+        cardFrontBinding.scShowNumber.setOnCheckedChangeListener { _, isChecked ->
             if (isChecked) {
 
 
@@ -700,7 +704,7 @@ class CardDashboard : Fragment() {
         }
     }
 
-    fun flipCard(view: View?) {
+    fun flipCard() {
         if (!mIsBackVisible) {
             showBackVisibleCard()
         } else {

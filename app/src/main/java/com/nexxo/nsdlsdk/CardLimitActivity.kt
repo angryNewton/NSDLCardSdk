@@ -66,10 +66,10 @@ class CardLimitActivity : AppCompatActivity() {
             binding.enablePos.isChecked = Constants.customerData!!.DomesticPOS.equals("Y")
         }
         if (binding.enableContactless.isChecked){
-            binding.txtLock.text = "Unlocked"
+            binding.txtLock.text = "Active"
             binding.txtLock.setTextColor(Color.GREEN)
         }else{
-            binding.txtLock.text = "Locked"
+            binding.txtLock.text = "INACTIVE"
             binding.txtLock.setTextColor(Color.RED)
         }
 
