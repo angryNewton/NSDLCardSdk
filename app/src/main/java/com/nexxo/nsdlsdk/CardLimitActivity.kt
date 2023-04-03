@@ -3,6 +3,7 @@ package com.nexxo.nsdlsdk
 import android.app.Activity
 import android.app.Dialog
 import android.content.Context
+import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
@@ -159,6 +160,25 @@ class CardLimitActivity : AppCompatActivity() {
                 Utility.logData("ecom type trxn not allowed")
             }
         }
+
+        binding.lySetPin.setOnClickListener {
+            try {
+                val activity = Intent(activity, SetPin::class.java)
+                startActivity(activity)
+            } catch (e: Exception) {
+                e.message?.let { it1 -> Utility.logData(it1) }
+            }
+        }
+
+        if (Constants.customerData!=null){
+            if (Constants.customerData!!.IsPDC.equals("Y")){
+                binding.lySetPin.visibility = View.VISIBLE
+
+            }else{
+                binding.lySetPin.visibility = View.GONE
+            }
+        }
+
 
         binding.enableEcom.setOnCheckedChangeListener { buttonView, isChecked ->
             if (isChecked){

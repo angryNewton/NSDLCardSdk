@@ -173,14 +173,14 @@ class CardDashboard : Fragment() {
             }
         }
 
-        binding.resetPinIv.setOnClickListener {
+        /*binding.resetPinIv.setOnClickListener {
             try {
                 val activity = Intent(activity, SetPin::class.java)
                 startActivity(activity)
             } catch (e: Exception) {
                 e.message?.let { it1 -> Utility.logData(it1) }
             }
-        }
+        }*/
 
         viewModel = ViewModelProvider(this).get(
             DashboardViewModel::class.java
@@ -269,9 +269,9 @@ class CardDashboard : Fragment() {
 
                 if (!it.responsedata!!.CustomerData[0].IsPDC.equals("Y")){
                     orderCard()
-                    binding.resetPinIv.visibility = View.GONE
+                   // binding.resetPinIv.visibility = View.GONE
                 }else{
-                    binding.resetPinIv.visibility = View.VISIBLE
+                  //  binding.resetPinIv.visibility = View.VISIBLE
                 }
 
 

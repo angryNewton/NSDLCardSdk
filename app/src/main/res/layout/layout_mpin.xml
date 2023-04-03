@@ -19,7 +19,7 @@
             android:layout_gravity="center"
             android:fontFamily="@font/quicksand_bold"
             android:gravity="center"
-            android:text="Mpin"
+            android:text="Please Enter your MPIN"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/text_size_16" />
 

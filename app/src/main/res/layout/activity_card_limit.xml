@@ -559,6 +559,8 @@
 
             </androidx.appcompat.widget.LinearLayoutCompat>
 
+
+
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
@@ -626,6 +628,64 @@
                 android:layout_marginTop="10dp"
                 android:layout_marginEnd="16dp"
                 android:background="@color/divider" />
+
+
+
+            <androidx.appcompat.widget.LinearLayoutCompat
+                android:id="@+id/ly_set_pin"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal"
+                android:weightSum="4">
+
+                <ImageView
+                    android:layout_width="46dp"
+                    android:layout_height="46dp"
+                    android:src="@drawable/ic_set_pin" />
+
+                <androidx.appcompat.widget.LinearLayoutCompat
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="28dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="3"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_semibold"
+                        android:text="Set PIN"
+                        android:textColor="@color/text_color"
+                        android:textSize="@dimen/text_size_16" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/quicksand_semibold"
+                        android:text="LOCKED"
+                        android:visibility="gone"
+                        android:textColor="@color/red_text_color"
+                        android:textSize="12sp" />
+
+                </androidx.appcompat.widget.LinearLayoutCompat>
+
+                <androidx.appcompat.widget.SwitchCompat
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
+                    android:theme="@style/SCBSwitch"
+                    android:layout_marginTop="10dp"
+                    android:visibility="gone"
+                    app:track="@drawable/toggle_selecter"
+                    android:thumb="@drawable/custom_switch"
+                    android:layout_weight="1" />
+
+
+            </androidx.appcompat.widget.LinearLayoutCompat>
+
+
 
 
 
