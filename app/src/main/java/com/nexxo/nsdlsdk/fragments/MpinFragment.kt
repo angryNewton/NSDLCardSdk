@@ -328,13 +328,13 @@ class MpinFragment( context: Context) : BottomSheetDialogFragment() {
             credBean.credId = "NJDCWIKHIWUEDINN"
             credBean.credBlock = rsaEncryptedData
 
-            //val ow = ObjectMapper().writer().withDefaultPrettyPrinter()
+            val json = ObjectMapper().writer().writeValueAsString(credBean)
             var gson = Gson()
-            var json = gson.toJson(credBean)
+           // var json = gson.toJson(credBean)
             //val json = ObjectMapper().writer().writeValueAsString(credBean)
             val formattedJson = json.replace("\\n", "").replace("\\r", "")
 
-           // val encoder: Base64.Encoder = Base64.getEncoder()
+            val encoder: Base64.Encoder = Base64.getEncoder()
             var encodedBase64CredVal: String = ""
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
                 encodedBase64CredVal = Base64.getEncoder().encodeToString(formattedJson.toByteArray())
