@@ -52,7 +52,7 @@ class CardDashboard : Fragment() {
     private var mCardBackLayout: View? = null
     private var mCardFrontLayout: View? = null
     private var isCardBlocked = false
-    lateinit var mpin:MpinFragment
+    lateinit var mpin: MpinFragment
 
 
     /*override fun onCreate(savedInstanceState: Bundle?) {
@@ -131,10 +131,12 @@ class CardDashboard : Fragment() {
             flipCard()
         }
 
-        if (SdkConfig.accountType==1){
-            binding.layoutCardFront.cardFrontImage.background = activity.getDrawable(R.drawable.front_card)
-        }else{
-            binding.layoutCardFront.cardFrontImage.background = activity.getDrawable(R.drawable.debit_card)
+        if (SdkConfig.accountType == 1) {
+            binding.layoutCardFront.cardFrontImage.background =
+                activity.getDrawable(R.drawable.front_card)
+        } else {
+            binding.layoutCardFront.cardFrontImage.background =
+                activity.getDrawable(R.drawable.debit_card)
         }
 
 
@@ -189,7 +191,7 @@ class CardDashboard : Fragment() {
 
         viewModel.token.observe(activity as FragmentActivity) {
             Constants.SESSIONID = it.responsedata!!.SessionId.toString()
-            Utility.logData("Session ID *** "+ Constants.SESSIONID)
+            Utility.logData("Session ID *** " + Constants.SESSIONID)
             createCardDetailRequest()
         }
 
@@ -198,21 +200,21 @@ class CardDashboard : Fragment() {
         }
 
         viewModel.verifyMpinResponse.observe(activity as FragmentActivity) {
-            Utility.logData("Session ID *** "+it.messageval.toString())
+            Utility.logData("Session ID *** " + it.messageval.toString())
 
         }
 
         viewModel.CVVDATA.observe(activity as FragmentActivity) {
-            Utility.logData("Session ID *** "+it.response.toString())
+            Utility.logData("Session ID *** " + it.response.toString())
             binding.progressDialog.visibility = View.GONE
             flipCard()
-           // mpin.closeDialog()
+            // mpin.closeDialog()
             mpin.resetPin()
             cardFrontBinding.scShowNumber.isChecked = true
             cardBackBinding.tvExpiryDate.text = Constants.CARD_EXPIRY_TV
-            if (it.responsedata!!.CustomerData!=null && it.responsedata!!.CustomerData.size>0){
+            if (it.responsedata!!.CustomerData != null && it.responsedata!!.CustomerData.size > 0) {
                 binding.layoutCardBack.tvSecurityDate.text = it.responsedata!!.CustomerData[0].CVV
-                it.responsedata!!.CustomerData[0].cardNo?.let { it1 -> setCardNumber(it1,false) }
+                it.responsedata!!.CustomerData[0].cardNo?.let { it1 -> setCardNumber(it1, false) }
                 //  binding.layoutCardBack.tvSecurityDate.text = it.responsedata!!.CustomerData[0].CVV
 
             }
@@ -221,24 +223,57 @@ class CardDashboard : Fragment() {
 
         viewModel.cardDetail.observe(activity as FragmentActivity) {
             binding.progressDialog.visibility = View.GONE
-            if (it.responsedata!!.CustomerData == null || it.responsedata!!.CustomerData.size==0){
+            if (it.responsedata!!.CustomerData == null || it.responsedata!!.CustomerData.size == 0) {
                 return@observe
             }
             Constants.customerData = it.responsedata!!.CustomerData[0]
             Constants.SESSION_ACTIVE = true
             if (it.responsedata != null) {
                 var custname = it.responsedata!!.CustomerData[0].CustomerName.toString()
+                binding.llActions.visibility = View.VISIBLE
                 Utility.logData("Customer name *** $custname")
 
-                if (it.responsedata!!.CustomerData[0].HoldRspCode == 5){
+                if (it.responsedata!!.CustomerData[0].HoldRspCode == 5) {
                     Constants.iscardBlocked = true
                     binding.cardBlockIv.setImageDrawable(activity?.let {
                         ContextCompat.getDrawable(
                             it, R.drawable.ic_lock
                         )
                     })
-                }else{
+                    binding.copyCardIv.isEnabled = false
+                    binding.copyCardIv.isClickable = false
+                    binding.copyCardIv.fitsSystemWindows = false
+                    binding.copyCardIv.alpha = 0.5F
+                    binding.resetPinIv.isEnabled = false
+                    binding.resetPinIv.isClickable = false
+                    binding.resetPinIv.fitsSystemWindows = false
+                    binding.resetPinIv.alpha = 0.5F
+                    binding.addMoneyTv.isEnabled = false
+                    binding.addMoneyTv.isClickable = false
+                    binding.addMoneyTv.fitsSystemWindows = false
+                    binding.addMoneyTv.alpha = 0.5F
+                    binding.cardControlsIv.isEnabled = false
+                    binding.cardControlsIv.isClickable = false
+                    binding.cardControlsIv.fitsSystemWindows = false
+                    binding.cardControlsIv.alpha = 0.5F
+                } else {
                     Constants.iscardBlocked = false
+                    binding.copyCardIv.isEnabled = true
+                    binding.copyCardIv.isClickable = true
+                    binding.copyCardIv.fitsSystemWindows = true
+                    binding.copyCardIv.alpha = 1.0F
+                    binding.resetPinIv.isEnabled = true
+                    binding.resetPinIv.isClickable = true
+                    binding.resetPinIv.fitsSystemWindows = true
+                    binding.resetPinIv.alpha = 1.0F
+                    binding.addMoneyTv.isEnabled = true
+                    binding.addMoneyTv.isClickable = true
+                    binding.addMoneyTv.fitsSystemWindows = true
+                    binding.addMoneyTv.alpha = 1.0F
+                    binding.cardControlsIv.isEnabled = true
+                    binding.cardControlsIv.isClickable = true
+                    binding.cardControlsIv.fitsSystemWindows = true
+                    binding.cardControlsIv.alpha = 1.0F
                     binding.cardBlockIv.setImageDrawable(activity?.let {
                         ContextCompat.getDrawable(
                             it, R.drawable.ic_unblock
@@ -249,29 +284,30 @@ class CardDashboard : Fragment() {
 
                 var nameData = custname.split(" ")
                 cardFrontBinding.tvCardFirstName.text = nameData[0]
-                if (nameData[1]!=null){
+                if (nameData[1] != null) {
                     cardFrontBinding.tvCardLastName.text = nameData[1]
                 }
 
                 var cardNumber: String? = it.responsedata!!.CustomerData[0].CardNo
                 // var exp: String? = it.responsedata!!.CustomerData[0].ExpiryDate!!.split(1)
 
-                val result1 = it.responsedata!!.CustomerData[0].ExpiryDate!!.dropLast(2) // returns abcdefghijklmnopqrstuvwxyzabcdefghi
+                val result1 =
+                    it.responsedata!!.CustomerData[0].ExpiryDate!!.dropLast(2) // returns abcdefghijklmnopqrstuvwxyzabcdefghi
                 val result2 = it.responsedata!!.CustomerData[0].ExpiryDate!!.drop(2)
 
                 Constants.CARDNO = cardNumber.toString()
-                Constants.CARD_EXPIRY ="$result1/$result2"
-                Constants.CARD_EXPIRY_TV ="$result2/$result1"
-                if (it.responsedata!!.CustomerData[0].DomesticECOM.equals("N")){
+                Constants.CARD_EXPIRY = "$result1/$result2"
+                Constants.CARD_EXPIRY_TV = "$result2/$result1"
+                if (it.responsedata!!.CustomerData[0].DomesticECOM.equals("N")) {
                     enableEcomRequest()
                 }
-                setCardNumber(Constants.CARDNO,true)
+                setCardNumber(Constants.CARDNO, true)
 
-                if (!it.responsedata!!.CustomerData[0].IsPDC.equals("Y")){
+                if (!it.responsedata!!.CustomerData[0].IsPDC.equals("Y")) {
                     orderCard()
-                   // binding.resetPinIv.visibility = View.GONE
-                }else{
-                  //  binding.resetPinIv.visibility = View.VISIBLE
+                    // binding.resetPinIv.visibility = View.GONE
+                } else {
+                    //  binding.resetPinIv.visibility = View.VISIBLE
                 }
 
 
@@ -280,18 +316,18 @@ class CardDashboard : Fragment() {
 
         cardFrontBinding.scShowNumber.setOnClickListener {
 
-            if (cardFrontBinding.scShowNumber.isChecked){
+            if (cardFrontBinding.scShowNumber.isChecked) {
                 mpin.show(
                     childFragmentManager,
                     mpin.tag
                 )
                 cardFrontBinding.scShowNumber.isChecked = false
-            }else{
+            } else {
                 binding.layoutCardBack.tvSecurityDate.text = "***"
                 cardBackBinding.tvExpiryDate.text = "XX/XX"
-                setCardNumber(Constants.CARDNO,true)
+                setCardNumber(Constants.CARDNO, true)
             }
-            Utility.logData("ischecked$$$$$$$$$$$$$$$$$ "+cardFrontBinding.scShowNumber.isChecked)
+            Utility.logData("ischecked$$$$$$$$$$$$$$$$$ " + cardFrontBinding.scShowNumber.isChecked)
 
         }
 
@@ -300,8 +336,7 @@ class CardDashboard : Fragment() {
             if (isChecked) {
 
 
-
-            }else{
+            } else {
                 /* binding.layoutCardBack.tvSecurityDate.text = "***"
                  setCardNumber(Constants.CARDNO,true)*/
             }
@@ -311,22 +346,30 @@ class CardDashboard : Fragment() {
         return binding.root
     }
 
-    var isblocked:iBlockUnblock = object : iBlockUnblock {
+    var isblocked: iBlockUnblock = object : iBlockUnblock {
         override fun changeTogelButton(isblocked: Boolean) {
             changeTogel(isblocked)
+            try {
+                Utility.logData("iBlockUnblock called")
+                if (Constants.SESSION_ACTIVE) {
+                    createCardDetailRequest()
+                } else {
+                    createSessionRequest()
+                }
+            } catch (er: java.lang.Exception) {
+                Utility.logData("iBlockUnblock called" + er.message.toString())
+            }
         }
     }
 
-    var updateCvv:iCvvCommunitor = object : iCvvCommunitor {
+    var updateCvv: iCvvCommunitor = object : iCvvCommunitor {
         override fun fetchCvv() {
             callFetchCvv()
         }
     }
 
 
-
-
-    private fun setCardNumber(cardNumber: String,isMasked:Boolean){
+    private fun setCardNumber(cardNumber: String, isMasked: Boolean) {
         if (cardNumber != null) {
             for (i in cardNumber) {
                 cardBackBinding.tvCardFirst1Name.text = cardNumber[0].toString()
@@ -336,7 +379,7 @@ class CardDashboard : Fragment() {
 
                 /**/
 
-                if (isMasked){
+                if (isMasked) {
                     cardBackBinding.tvCardFirst2Name.text = "x"
                     cardBackBinding.tvCardSecond2Name.text = "x"
                     cardBackBinding.tvCardThird2Name.text = "x"
@@ -345,7 +388,7 @@ class CardDashboard : Fragment() {
                     cardBackBinding.tvCardSecond3Name.text = "x"
                     cardBackBinding.tvCardThird3Name.text = "x"
                     cardBackBinding.tvCardFourth3Name.text = "x"
-                }else{
+                } else {
                     cardBackBinding.tvCardFirst2Name.text = cardNumber[4].toString()
                     cardBackBinding.tvCardSecond2Name.text = cardNumber[5].toString()
                     cardBackBinding.tvCardThird2Name.text = cardNumber[6].toString()
@@ -403,17 +446,17 @@ class CardDashboard : Fragment() {
             mainObj.put("partnerid", SdkConfig.partnerId)
             mainObj.put("servicetype", "PBgetSessionME")
             var reqId = Utility.generateSequenceNumber()
-            mainObj.put("requestid",reqId )
+            mainObj.put("requestid", reqId)
             mainObj.put("encdata", encryptedData)
-            var headers: HashMap<String, String> = HashMap<String,String>()
+            var headers: HashMap<String, String> = HashMap<String, String>()
             headers["Content-Type"] = "application/json"
             headers["channelid"] = SdkConfig.channelId
             headers["partnerid"] = SdkConfig.partnerId
             headers["requestid"] = reqId.toString()
             Constants.REQUESTID = reqId.toString()
-            viewModel.getNewSession(mainObj.toString(),headers)
+            viewModel.getNewSession(mainObj.toString(), headers)
             binding.progressDialog.visibility = View.VISIBLE
-            Utility.logData("Session request "+mainObj.toString())
+            Utility.logData("Session request " + mainObj.toString())
 
 
         } catch (e: Exception) {
@@ -451,7 +494,6 @@ class CardDashboard : Fragment() {
             jObject.put("token", SdkConfig.token)
 
 
-
             var parentObj = JSONObject()
 
             parentObj.put("channelid", SdkConfig.channelId)
@@ -459,13 +501,13 @@ class CardDashboard : Fragment() {
             parentObj.put("partnerid", SdkConfig.partnerId)
             parentObj.put("servicetype", "PBcardInternationalStatusME")
             var reqId = Utility.generateSequenceNumber()
-            mainObj.put("requestid",reqId )
-            mainObj.put("atm","Y" )
-            mainObj.put("contactless","N" )
-            mainObj.put("ecom","Y" )
-            mainObj.put("pos","Y" )
-            mainObj.put("cardNo",Constants.CARDNO )
-            mainObj.put("type","D" )
+            mainObj.put("requestid", reqId)
+            mainObj.put("atm", "Y")
+            mainObj.put("contactless", "N")
+            mainObj.put("ecom", "Y")
+            mainObj.put("pos", "Y")
+            mainObj.put("cardNo", Constants.CARDNO)
+            mainObj.put("type", "D")
 
             var encryptedData = Utility.encryptpayload(mainObj.toString(), Constants.ENCRYPTION_KEY)
             Utility.logData("Decrytped data ecom emable $mainObj")
@@ -475,15 +517,15 @@ class CardDashboard : Fragment() {
             parentObj.put("encdata", encryptedData)
             parentObj.put("encdata", encryptedData)
             // mainObj.put("encdata", encryptedData)
-            var headers: HashMap<String, String> = HashMap<String,String>()
+            var headers: HashMap<String, String> = HashMap<String, String>()
             headers["Content-Type"] = "application/json"
             headers["channelid"] = SdkConfig.channelId
             headers["partnerid"] = SdkConfig.partnerId
             headers["requestid"] = reqId.toString()
             Constants.REQUESTID = reqId.toString()
-            viewModel.enableEcom(parentObj.toString(),headers)
+            viewModel.enableEcom(parentObj.toString(), headers)
             binding.progressDialog.visibility = View.VISIBLE
-            Utility.logData("ecom request "+parentObj.toString())
+            Utility.logData("ecom request " + parentObj.toString())
 
 
         } catch (e: Exception) {
@@ -521,12 +563,12 @@ class CardDashboard : Fragment() {
             )
             jObject.put("token", SdkConfig.token)
 
-            var dataObj:JSONObject = JSONObject()
-            dataObj.put("cardStatus","0")
-            dataObj.put("cardType","6")
-            dataObj.put("customerId",SdkConfig.customerId)
-            dataObj.put("sessionId",Constants.SESSIONID)
-            jObject.put("msg",dataObj)
+            var dataObj: JSONObject = JSONObject()
+            dataObj.put("cardStatus", "0")
+            dataObj.put("cardType", "6")
+            dataObj.put("customerId", SdkConfig.customerId)
+            dataObj.put("sessionId", Constants.SESSIONID)
+            jObject.put("msg", dataObj)
 
             var encryptedData = Utility.encryptpayload(jObject.toString(), Constants.ENCRYPTION_KEY)
             Utility.logData("Decrytped data $jObject")
@@ -536,17 +578,17 @@ class CardDashboard : Fragment() {
             mainObj.put("partnerid", SdkConfig.partnerId)
             mainObj.put("servicetype", "PBfetchCardDetailsME/v1")
             var reqId = Utility.generateSequenceNumber()
-            mainObj.put("requestid",reqId )
+            mainObj.put("requestid", reqId)
             mainObj.put("encdata", encryptedData)
-            var headers: HashMap<String, String> = HashMap<String,String>()
+            var headers: HashMap<String, String> = HashMap<String, String>()
             headers["Content-Type"] = "application/json"
             headers["channelid"] = SdkConfig.channelId
             headers["partnerid"] = SdkConfig.partnerId
             headers["requestid"] = reqId.toString()
             Constants.REQUESTID = reqId.toString()
             binding.progressDialog.visibility = View.VISIBLE
-            viewModel.getCardDetails(mainObj.toString(),headers)
-            Utility.logData("card details request "+mainObj.toString())
+            viewModel.getCardDetails(mainObj.toString(), headers)
+            Utility.logData("card details request " + mainObj.toString())
 
 
         } catch (e: Exception) {
@@ -554,18 +596,18 @@ class CardDashboard : Fragment() {
         }
     }
 
-    fun callFetchCvv(){
+    fun callFetchCvv() {
         createCvvDetailRequest()
     }
 
-    fun changeTogel(isblocked:Boolean){
+    fun changeTogel(isblocked: Boolean) {
         if (isblocked) {
             binding.cardBlockIv.setImageDrawable(activity?.let {
                 ContextCompat.getDrawable(
                     it, R.drawable.ic_card_block
                 )
             })
-        }else{
+        } else {
             binding.cardBlockIv.setImageDrawable(activity?.let {
                 ContextCompat.getDrawable(
                     it, R.drawable.ic_unblock_card
@@ -613,9 +655,9 @@ class CardDashboard : Fragment() {
             mainObj.put("partnerid", SdkConfig.partnerId)
             mainObj.put("servicetype", "PBgetSessionME")
             var reqId = Utility.generateSequenceNumber()
-            mainObj.put("requestid",reqId )
+            mainObj.put("requestid", reqId)
             mainObj.put("encdata", encryptedData)
-            var headers: HashMap<String, String> = HashMap<String,String>()
+            var headers: HashMap<String, String> = HashMap<String, String>()
             headers["Content-Type"] = "application/json"
             headers["channelid"] = SdkConfig.channelId
             headers["partnerid"] = SdkConfig.partnerId
@@ -623,8 +665,8 @@ class CardDashboard : Fragment() {
             Constants.REQUESTID = reqId.toString()
 
             var mainObject = MainObject()
-            mainObject.channelid =SdkConfig.channelId
-            mainObject.signcs =Constants.SIGNCS
+            mainObject.channelid = SdkConfig.channelId
+            mainObject.signcs = Constants.SIGNCS
             mainObject.token = SdkConfig.token
             mainObject.servicetype = "PBgetCVVdetailsME"
             mainObject.requestid = reqId
@@ -644,7 +686,7 @@ class CardDashboard : Fragment() {
 
             var gson = Gson()
             var formattedAppDtlsJson = gson.toJson(appdtls)
-            var formattedAppDtlsObject:JSONObject = JSONObject(formattedAppDtlsJson)
+            var formattedAppDtlsObject: JSONObject = JSONObject(formattedAppDtlsJson)
 
             //  val appDtlsJson = ObjectMapper().writer().writeValueAsString(appdtls)
             //   val formattedAppDtlsJson = appDtlsJson.replace("\\n", "").replace("\\r", "")
@@ -656,7 +698,7 @@ class CardDashboard : Fragment() {
             deviceidentifier.custunqid = SdkConfig.customerUniqueId
 
             var formattedDeviceIdentifier = gson.toJson(deviceidentifier)
-            var formattedDeviceIdentifierObject:JSONObject = JSONObject(formattedDeviceIdentifier)
+            var formattedDeviceIdentifierObject: JSONObject = JSONObject(formattedDeviceIdentifier)
 
             //   val deviceidentifierJson = ObjectMapper().writer().writeValueAsString(deviceidentifier)
             //   val formattedDeviceIdentifier = deviceidentifierJson.replace("\\n", "").replace("\\r", "")
@@ -664,39 +706,37 @@ class CardDashboard : Fragment() {
 
             var msg = Msg()
             msg?.cardNo = Constants.CARDNO
-            msg?.expiryDate = Constants.CARD_EXPIRY.replace("/","")
+            msg?.expiryDate = Constants.CARD_EXPIRY.replace("/", "")
             msg?.sessionId = Constants.SESSIONID
 
 
-            var formattedMsg:String = gson.toJson(msg)
-            var formattedMsgObject:JSONObject = JSONObject(formattedMsg)
+            var formattedMsg: String = gson.toJson(msg)
+            var formattedMsgObject: JSONObject = JSONObject(formattedMsg)
             //  val msgJson = ObjectMapper().writer().writeValueAsString(msg)
             //  val formattedMsg = msgJson.replace("\\n", "").replace("\\r", "")
 
 
-
-
             var jsonObject = JSONObject()
-            jsonObject.put("appdtls",formattedAppDtlsObject)
-            jsonObject.put("deviceidentifier",formattedDeviceIdentifierObject)
-            jsonObject.put("msg",formattedMsgObject)
-            jsonObject.put("channelid",SdkConfig.channelId)
+            jsonObject.put("appdtls", formattedAppDtlsObject)
+            jsonObject.put("deviceidentifier", formattedDeviceIdentifierObject)
+            jsonObject.put("msg", formattedMsgObject)
+            jsonObject.put("channelid", SdkConfig.channelId)
 
             //   val decObj = jsonObject.toString().replace("\\n", "").replace("\\r", "")
-            var encData = Utility.encryptpayload(jsonObject.toString(),Constants.ENCRYPTION_KEY)
-            Utility.logData("decrypted cvv request data "+jsonObject.toString())
+            var encData = Utility.encryptpayload(jsonObject.toString(), Constants.ENCRYPTION_KEY)
+            Utility.logData("decrypted cvv request data " + jsonObject.toString())
 
             var json = gson.toJson(mainObject)
-          //  val json = ObjectMapper().writer().writeValueAsString(mainObject)
+            //  val json = ObjectMapper().writer().writeValueAsString(mainObject)
             val formattedJson = json.replace("\\n", "").replace("\\r", "")
             var jsonObjectMain = JSONObject(formattedJson)
-            jsonObjectMain.put("encdata",encData)
+            jsonObjectMain.put("encdata", encData)
 
 
 
-            viewModel.getCVVDetails(jsonObjectMain.toString(),headers)
+            viewModel.getCVVDetails(jsonObjectMain.toString(), headers)
             binding.progressDialog.visibility = View.VISIBLE
-            Utility.logData("get CVV request "+jsonObjectMain.toString())
+            Utility.logData("get CVV request " + jsonObjectMain.toString())
 
 
         } catch (e: Exception) {
@@ -767,7 +807,7 @@ class CardDashboard : Fragment() {
 
             var reqId = Utility.generateSequenceNumber()
 
-            var headers: HashMap<String, String> = HashMap<String,String>()
+            var headers: HashMap<String, String> = HashMap<String, String>()
             headers["Content-Type"] = "application/json"
             headers["channelid"] = SdkConfig.channelId
             headers["partnerid"] = SdkConfig.partnerId
@@ -777,16 +817,14 @@ class CardDashboard : Fragment() {
             // *********** dto
 
             var mainObject = MainObject()
-            mainObject.channelid =SdkConfig.channelId
-            mainObject.signcs =Constants.SIGNCS
+            mainObject.channelid = SdkConfig.channelId
+            mainObject.signcs = Constants.SIGNCS
             mainObject.token = SdkConfig.token
             //   mainObject.servicetype = "PBgetCVVdetailsME"
             mainObject.requestid = reqId
             mainObject.channelid = SdkConfig.channelId
             mainObject.appid = SdkConfig.appID
             mainObject.partnerid = SdkConfig.partnerId
-
-
 
 
             var appdtls = Appdtls()
@@ -798,7 +836,7 @@ class CardDashboard : Fragment() {
 
             var gson = Gson()
             var formattedAppDtlsJson = gson.toJson(appdtls)
-            var formattedAppDtlsObject:JSONObject = JSONObject(formattedAppDtlsJson)
+            var formattedAppDtlsObject: JSONObject = JSONObject(formattedAppDtlsJson)
 
             var deviceidentifier = Deviceidentifier()
             deviceidentifier.deviceid = SdkConfig.deviceID
@@ -806,37 +844,37 @@ class CardDashboard : Fragment() {
             deviceidentifier.custunqid = SdkConfig.customerUniqueId
 
             var formattedDeviceIdentifier = gson.toJson(deviceidentifier)
-            var formattedDeviceIdentifierObject:JSONObject = JSONObject(formattedDeviceIdentifier)
+            var formattedDeviceIdentifierObject: JSONObject = JSONObject(formattedDeviceIdentifier)
 
             var msg = Msg()
             msg?.cardNo = Constants.CARDNO
-            msg?.expiryDate = Constants.CARD_EXPIRY.replace("/","")
+            msg?.expiryDate = Constants.CARD_EXPIRY.replace("/", "")
             msg?.sessionId = Constants.SESSIONID
 
 
-            var formattedMsg:String = gson.toJson(msg)
-            var formattedMsgObject:JSONObject = JSONObject(formattedMsg)
+            var formattedMsg: String = gson.toJson(msg)
+            var formattedMsgObject: JSONObject = JSONObject(formattedMsg)
 
             var json = gson.toJson(mainObject)
             var jsonObject = JSONObject()
-            jsonObject.put("appdtls",formattedAppDtlsObject)
-            jsonObject.put("deviceidentifier",formattedDeviceIdentifierObject)
-            jsonObject.put("msg",formattedMsgObject)
-            jsonObject.put("channelid",SdkConfig.channelId)
+            jsonObject.put("appdtls", formattedAppDtlsObject)
+            jsonObject.put("deviceidentifier", formattedDeviceIdentifierObject)
+            jsonObject.put("msg", formattedMsgObject)
+            jsonObject.put("channelid", SdkConfig.channelId)
 
-            var encData = Utility.encryptpayload(jsonObject.toString(),Constants.ENCRYPTION_KEY)
-            Utility.logData("decrypted ordercard request data "+jsonObject.toString())
+            var encData = Utility.encryptpayload(jsonObject.toString(), Constants.ENCRYPTION_KEY)
+            Utility.logData("decrypted ordercard request data " + jsonObject.toString())
 
 
             //  val json = ObjectMapper().writer().writeValueAsString(mainObject)
             val formattedJson = json.replace("\\n", "").replace("\\r", "")
             var jsonObjectMain = JSONObject(formattedJson)
             //  jsonObjectMain.put("encdata",encData)
-            jsonObject.put("serviceremark","3")
-            jsonObject.put("userremark","2")
-            jsonObject.put("custremark","1")
+            jsonObject.put("serviceremark", "3")
+            jsonObject.put("userremark", "2")
+            jsonObject.put("custremark", "1")
 
-            viewModel.orderCard(jsonObject.toString(),headers)
+            viewModel.orderCard(jsonObject.toString(), headers)
             binding.progressDialog.visibility = View.VISIBLE
             Utility.logData("order card request $jsonObject")
 
@@ -848,10 +886,11 @@ class CardDashboard : Fragment() {
 
     override fun onResume() {
         super.onResume()
+        Utility.logData("onResume called")
         loadAnimations()
-        if (Constants.SESSION_ACTIVE){
+        if (Constants.SESSION_ACTIVE) {
             createCardDetailRequest()
-        }else{
+        } else {
             createSessionRequest()
         }
     }
